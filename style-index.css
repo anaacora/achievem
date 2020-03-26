@@ -1,0 +1,18 @@
+.no-space {
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+}
+
+.progress {
+    height: 5px;
+    margin-top: 5px;
+}
+
+.badge-pill {
+    color: white;
+}
+
+.goal_done {
+    background-color: #e6e6e6;
+}
