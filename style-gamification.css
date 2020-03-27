@@ -1,0 +1,45 @@
+/*--------text--------*/
+
+.txt-score{
+    font-size: x-large;
+    font-weight: bold;
+}
+.txt-subtitles{
+    font-size: large;
+    font-weight: bold;
+}
+.txt-bold{
+    font-weight: bold;
+}
+.txt-level{
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+
+/*-margins and paddings-*/
+
+
+
+/*--------images--------*/
+.img-score {
+    height: 100px;
+    width: 100px;
+}
+
+.img-friendtable {
+    height: 30px;
+    width: 30px;
+}
+
+/* Award images */
+.img-awards {
+    height: 50px;
+    width: 50px;
+}
+
+.img-awards-profile {
+    height: 30px;
+    width: 30px;
+}
+

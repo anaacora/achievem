@@ -11,7 +11,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="style-index.css">
+    <link rel="stylesheet" type="text/css" href="style-gamification.css">
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -43,7 +43,6 @@
             <ul class="navbar-nav">
                 <li class="nav-item flex-row-reverse">
                     <a href="./profile.html"><img class="nav_profile_icon" src="./img/profile_round_ana.png" class="img-thumbnail" alt="Profile"></a>
-
                 </li>
             </ul>
         </div>
@@ -52,28 +51,30 @@
     <div class="container-fluid">
 
         <div class="row mb-3">
-            <div class="col">
+            <div class="col text-center">
                 <h3>Your Points - Gamification</h3>
             </div>
         </div>
         
         <div class="row mb-3">
-            <div class="col">
-                <img src="./img/profile_round_ana.png" alt="Profile" class="img-thumbnail">
+            <div class="col text-center">
+                <img src="./img/profile_round_ana.png" alt="Profile" class="img-score">
             </div>
         </div>
         
         <div class="row mb-3">
-            <div class="col">
-                <p class="no-space hovering"><span>1'350</span></p>
-                <i class="fas fa-share-alt hovering ml-1"></i>
+            <div class="col muted d-flex justify-content-center pt-2 txt-score">
+                <div>
+                    <span class="no-space hovering">1'350</span>
+                    <i class="fas fa-share-alt hovering ml-1"></i>
+                </div>
             </div>
         </div>
 
         <div class="row mb-3">
-            <div class="col-5 border">
-                <p>Level</p>
-                <p>8</p>
+            <div class="col-5 border text-center">
+                <p class="txt-subtitles"><span>Level</span></p>
+                <p class="txt-level"><span>8</span></p>
                 <div class="progress">
                     <div class="progress-bar bg-custom-grey-50" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                     <div class="progress-bar bg-custom-grey-70" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -81,12 +82,14 @@
                 <p>Next level in 550 points</p>
             </div>
             <div class="col-7 border">
-                <p>Your friends</p>
-                <table class="table">
+                <div class="text-center">
+                    <p class="txt-subtitles"><span>Your friends</span></p>
+                  </div>
+                <table class="table table-borderless">
                     <tbody>
-                      <tr>
+                      <tr class="txt-bold">
                         <th scope="row">
-                            <img src="./img/profile_round_ana.png" alt="Profile" class="img-thumbnail">
+                            <img src="./img/profile_round_ana.png" alt="Profile" class="img-friendtable">
                         </th>
                         <td>Me</td>
                         <td>1'350</td>
@@ -94,7 +97,7 @@
                       </tr>
                       <tr>
                         <th scope="row">
-                            <img src="./img/profile_round_ana.png" alt="Profile" class="img-thumbnail">
+                            <img src="./img/profile_round_denise.png" alt="Profile" class="img-friendtable">
                         </th>
                         <td>Denise</td>
                         <td>1'300</td>
@@ -102,7 +105,7 @@
                       </tr>
                       <tr>
                         <th scope="row">
-                            <img src="./img/profile_round_ana.png" alt="Profile" class="img-thumbnail">
+                            <img src="./img/profile_round_christian.png" alt="Profile" class="img-friendtable">
                         </th>
                         <td>Christian</td>
                         <td>1'150</td>
@@ -110,13 +113,108 @@
                       </tr>
                     </tbody>
                   </table>
-                <p>Challenge a friend</p>
+                  <div class="text-center">
+                    <p>Challenge a friend</p>
+                  </div>
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col">
-                <h3>List with achievments</h3>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-action list-group-item-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span>Challenge win: Against</span>
+                                <img src="./img/profile_round_denise.png" alt="Profile" class="img-awards-profile">
+                                <span>Denise</span>
+                                <p class="txt-custom-purple-50">+ 100</p>
+                            </div>
+                            <div>
+                                <img src="./img/100_points.png" alt="Award" class="img-awards">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item list-group-item-action list-group-item-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span>Streak 3x:</span>
+                                <span>Completed daily goals 3 times in a row</span>
+                                <p class="txt-custom-blue-50">+ 200</p>
+                            </div>
+                            <div>
+                                <img src="./img/200_points.png" alt="Award" class="img-awards">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item list-group-item-action list-group-item-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span>Completed all goals for today</span>
+                                <span>(05.03.)</span>
+                                <p class="txt-custom-purple-50">+ 100</p>
+                            </div>
+                            <div>
+                                <img src="./img/100_points.png" alt="Award" class="img-awards">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item list-group-item-action list-group-item-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span>Completed all goals for today</span>
+                                <span>(04.03.)</span>
+                                <p class="txt-custom-purple-50">+ 100</p>
+                            </div>
+                            <div>
+                                <img src="./img/100_points.png" alt="Award" class="img-awards">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item list-group-item-action list-group-item-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span>Challenge win: Against</span>
+                                <img src="./img/profile_round_christian.png" alt="Profile" class="img-awards-profile">
+                                <span>Christian</span>
+                                <p class="txt-custom-purple-50">+ 100</p>
+                            </div>
+                            <div>
+                                <img src="./img/100_points.png" alt="Award" class="img-awards">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item list-group-item-action list-group-item-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span>Completed goal:</span>
+                                <span>Eat a fruit</span>
+                                <p class="txt-custom-orange-50">+ 50</p>
+                            </div>
+                            <div>
+                                <img src="./img/50_points.png" alt="Award" class="img-awards">
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item list-group-item-action list-group-item-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span>Completed goal:</span>
+                                <span>Drink 2l water</span>
+                                <p class="txt-custom-orange-50">+ 50</p>
+                            </div>
+                            <div>
+                                <img src="./img/50_points.png" alt="Award" class="img-awards">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
 
