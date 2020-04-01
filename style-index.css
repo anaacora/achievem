@@ -16,3 +16,17 @@
 .goal_done {
     background-color: #e6e6e6;
 }
+
+.img-statistic {
+    height: 350px;
+    width: 450px;
+}
+
+.mrg-statistic {
+    margin: 10px;
+}
+
+.mrg-no {
+    margin: 0px;
+    padding: 0px;
+}
