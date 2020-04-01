@@ -1,29 +1,4 @@
-/*--------text--------*/
-
-.txt-score {
-    font-size: x-large;
-    font-weight: bold;
-}
-
-.txt-subtitles {
-    font-size: large;
-    font-weight: bold;
-}
-
-.txt-bold {
-    font-weight: bold;
-}
-
-.txt-level {
-    font-size: xx-large;
-    font-weight: bold;
-}
-
-
-/*--------images--------*/
-
-
-/* profiles */
+/*profile*/
 
 .img-score {
     height: 150px;
