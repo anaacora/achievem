@@ -22,8 +22,14 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script>
         $(document).ready(function() {
-            $(".testshit").click(function() {
-                $("#toastCat1").toast('show');
+            $(".toast-health-show").click(function() {
+                $("#toast-health").toast('show');
+            });
+            $(".toast-edu-show").click(function() {
+                $("#toast-edu").toast('show');
+            });
+            $(".toast-sport-show").click(function() {
+                $("#toast-sport").toast('show');
             });
         });
     </script>
@@ -60,26 +66,6 @@
             </ul>
         </div>
     </nav>
-    <!-- Toasts -->
-    <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
-        <!-- Position it -->
-        <div style="position: absolute; top: 0; right: 0;">
-
-            <!-- Then put toasts within -->
-            <div id="toastCat1" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
-                <div class="toast-header ">
-                    <strong class="mr-auto ">YOU ACHIEVED'EM!</strong>
-                    <small class="text-muted ">just now</small>
-                    <button type="button " class="ml-2 mb-1 close " data-dismiss="toast " aria-label="Close ">
-                <span aria-hidden="true ">&times;</span>
-              </button>
-                </div>
-                <div class="toast-body ">
-                    You achieved a goal in <span class="txt-custom-blue-50 ">Health & Food</span> !!!
-                    <span class="fas fa-laugh-beam "></span></div>
-            </div>
-        </div>
-    </div>
 
     <div class="container-fluid">
         <div class="row mb-3">
@@ -236,7 +222,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn text-white bg-custom-blue-50" data-dismiss="modal">Add</button>
+                    <button type="button" class="btn text-white bg-custom-blue-50 toast-health-show" data-dismiss="modal">Add</button>
                     <button type="button" class="btn text-white bg-custom-blue-70" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -268,7 +254,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn text-white bg-custom-blue-50" data-dismiss="modal">Add</button>
+                    <button type="button" class="btn text-white bg-custom-blue-50 toast-health-show" data-dismiss="modal">Add</button>
                     <button type="button" class="btn text-white bg-custom-blue-70" data-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -300,13 +286,14 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn text-white bg-custom-purple-50" data-dismiss="modal">Add</button>
+                    <button type="button" class="btn text-white bg-custom-purple-50 toast-edu-show" data-dismiss="modal">Add</button>
                     <button type="button" class="btn text-white bg-custom-purple-70" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- not shown because task already completed -->
     <!-- <div class="modal fade" id="ModalGym" tabindex="-1" role="dialog" aria-labelledby="MLabelGym" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -331,17 +318,56 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Add</button>
+                    <button type="button" class="btn btn-dark toast-sport-show" data-dismiss="modal">Add</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div> -->
 
-
-    <button type="button" class="btn btn-dark testshit" data-dismiss="modal">Add</button>
-
-
+    <!-- Toasts -->
+    <div aria-live="polite" aria-atomic="true">
+        <div id="toast-health" class="toast position-absolute" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+            <div class="toast-header ">
+                <strong class="mr-auto ">YOU ACHIEVED'EM!</strong>
+                <small class="text-muted ">just now</small>
+                <button type="button " class="ml-2 mb-1 close " data-dismiss="toast " aria-label="Close ">
+            <span aria-hidden="true ">&times;</span>
+          </button>
+            </div>
+            <div class="toast-body ">
+                You achieved a goal in <span class="txt-custom-blue-50 ">Health & Food</span> !!!
+                <span class="fas fa-laugh-beam "></span></div>
+        </div>
+    </div>
+    <div aria-live="polite" aria-atomic="true">
+        <div id="toast-edu" class="toast position-absolute" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+            <div class="toast-header ">
+                <strong class="mr-auto ">YOU ACHIEVED'EM!</strong>
+                <small class="text-muted ">just now</small>
+                <button type="button " class="ml-2 mb-1 close " data-dismiss="toast " aria-label="Close ">
+            <span aria-hidden="true ">&times;</span>
+          </button>
+            </div>
+            <div class="toast-body ">
+                You achieved a goal in <span class="txt-custom-purple-50 ">Education</span> !!!
+                <span class="fas fa-laugh-beam "></span></div>
+        </div>
+    </div>
+    <div aria-live="polite" aria-atomic="true">
+        <div id="toast-sport" class="toast position-absolute" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+            <div class="toast-header ">
+                <strong class="mr-auto ">YOU ACHIEVED'EM!</strong>
+                <small class="text-muted ">just now</small>
+                <button type="button " class="ml-2 mb-1 close " data-dismiss="toast " aria-label="Close ">
+            <span aria-hidden="true ">&times;</span>
+          </button>
+            </div>
+            <div class="toast-body ">
+                You achieved a goal in <span class="txt-custom-orange-50 ">Sports</span> !!!
+                <span class="fas fa-laugh-beam "></span></div>
+        </div>
+    </div>
 
 </body>
 
