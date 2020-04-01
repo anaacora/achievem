@@ -22,15 +22,6 @@
     width: 450px;
 }
 
-.mrg-statistic {
-    margin: 10px;
-}
-
-.mrg-no {
-    margin: 0px;
-    padding: 0px;
-}
-
 #toastCat1 {
     z-index: 999;
     position: absolute;

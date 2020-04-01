@@ -54,7 +54,7 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item flex-row-reverse">
-                    <a href="./profile.html"><img class="nav_profile_icon" src="./img/profile_round_ana.png" class="img-thumbnail" alt="Profile"></a>
+                    <a href="./profile.html"><img class="nav_profile_icon rounded-circle" src="./img/profile_ana.png" alt="Profile"></a>
 
                 </li>
             </ul>
@@ -101,14 +101,14 @@
             <div class="col">
                 <ul class="list-group">
                     <li class="list-group-item list-group-item-action list-group-item-light" data-toggle="modal" data-target="#ModalWater">
-                        <div class="d-flex justify-content-between mrg-no">
-                            <div class="col-4 mrg-no">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-4 p-0">
                                 <span>Drink 2l Water</span>
                             </div>
-                            <div class="col-4 text-center mrg-no">
+                            <div class="col-4 text-center p-0">
                                 <span class="txt-custom-blue-50">Health & Food</span>
                             </div>
-                            <div class="col-4 text-right mrg-no">
+                            <div class="col-4 text-right p-0">
                                 <span class="badge bg-custom-blue-50 badge-pill">0.5l / 2l</span>
                             </div>
                         </div>
@@ -118,14 +118,14 @@
                         </div>
                     </li>
                     <li class="list-group-item list-group-item-action list-group-item-light" data-toggle="modal" data-target="#ModalFruit">
-                        <div class="d-flex justify-content-between mrg-no">
-                            <div class="col-4 mrg-no">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-4 p-0">
                                 <span>Eat 3 fruits</span>
                             </div>
-                            <div class="col-4 text-center mrg-no">
+                            <div class="col-4 text-center p-0">
                                 <span class="txt-custom-blue-50">Health & Food</span>
                             </div>
-                            <div class="col-4 text-right mrg-no">
+                            <div class="col-4 text-right p-0">
                                 <span class="badge bg-custom-blue-50 badge-pill">0 / 3 fruits</span>
                             </div>
                         </div>
@@ -135,14 +135,14 @@
                         </div>
                     </li>
                     <li class="list-group-item list-group-item-action list-group-item-light" data-toggle="modal" data-target="#ModalPages">
-                        <div class="d-flex justify-content-between mrg-no">
-                            <div class="col-4 mrg-no">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-4 p-0">
                                 <span>Read 20 book pages</span>
                             </div>
-                            <div class="col-4 text-center mrg-no">
+                            <div class="col-4 text-center p-0">
                                 <span class="txt-custom-purple-50">Education</span>
                             </div>
-                            <div class="col-4 text-right mrg-no">
+                            <div class="col-4 text-right p-0">
                                 <span class="badge bg-custom-purple-50 badge-pill">15 / 20 pages</span>
                             </div>
                         </div>
@@ -152,14 +152,14 @@
                         </div>
                     </li>
                     <li class="list-group-item list-group-item-action list-group-item-light" data-toggle="modal" data-target="#ModalGym">
-                        <div class="d-flex justify-content-between mrg-no">
-                            <div class="col-4 mrg-no">
+                        <div class="d-flex justify-content-between">
+                            <div class="col-4 p-0">
                                 <span>Go to the gym</span>
                             </div>
-                            <div class="col-4 text-center mrg-no">
+                            <div class="col-4 text-center p-0">
                                 <span class="txt-custom-orange-50">Sports</span>
                             </div>
-                            <div class="col-4 text-right mrg-no">
+                            <div class="col-4 text-right p-0">
                                 <span class="badge bg-custom-orange-50 badge-pill">DONE</span>
                             </div>
                         </div>
@@ -205,12 +205,9 @@
 
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <img src="./img/statistic.png" alt="Statistics" class="img-statistic mrg-statistic">
+                <img src="./img/statistic.png" alt="Statistics" class="img-statistic m-2 mt-4">
             </div>
         </div>
-
-        <!-- Button trigger modal -->
-        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Launch demo modal</button>      -->
     </div>
 
     <!-- Modals -->
@@ -218,7 +215,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="MLabelWater">Drink 2l Water</h5>
+                    <h5 class="modal-title txt-custom-blue-50" id="MLabelWater">Health & Food: Drink 2l Water</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -231,7 +228,7 @@
                                 <div class="input-group">
                                     <input type="number" class="form-control" id="counterInput" value="1" aria-label="counterLabelAppend" aria-describedby="counter">
                                     <div class="input-group-append">
-                                        <span class="input-group-text" id="counterLabelAppend">l Water</span>
+                                        <span class="input-group-text text-white bg-custom-blue-70" id="counterLabelAppend">l Water</span>
                                     </div>
                                 </div>
                             </div>
@@ -239,8 +236,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Add</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn text-white bg-custom-blue-50" data-dismiss="modal">Add</button>
+                    <button type="button" class="btn text-white bg-custom-blue-70" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -250,7 +247,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="MLabelFruit">Eat 3 fruits</h5>
+                    <h5 class="modal-title txt-custom-blue-50" id="MLabelFruit">Health & Food: Eat 3 fruits</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -263,7 +260,7 @@
                                 <div class="input-group">
                                     <input type="number" class="form-control" id="counterInput" value="1" aria-label="counterLabelAppend" aria-describedby="counter">
                                     <div class="input-group-append">
-                                        <span class="input-group-text" id="counterLabelAppend">fruits</span>
+                                        <span class="input-group-text text-white bg-custom-blue-70" id="counterLabelAppend">fruits</span>
                                     </div>
                                 </div>
                             </div>
@@ -271,8 +268,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Add</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn text-white bg-custom-blue-50" data-dismiss="modal">Add</button>
+                    <button type="button" class="btn text-white bg-custom-blue-70" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -282,7 +279,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="MLabelPages">Read 20 book pages</h5>
+                    <h5 class="modal-title txt-custom-purple-50" id="MLabelPages">Education: Read 20 book pages</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -295,7 +292,7 @@
                                 <div class="input-group">
                                     <input type="number" class="form-control" id="counterInput" value="1" aria-label="counterLabelAppend" aria-describedby="counter">
                                     <div class="input-group-append">
-                                        <span class="input-group-text" id="counterLabelAppend">Pages</span>
+                                        <span class="input-group-text text-white bg-custom-purple-70" id="counterLabelAppend">Pages</span>
                                     </div>
                                 </div>
                             </div>
@@ -303,14 +300,14 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal">Add</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn text-white bg-custom-purple-50" data-dismiss="modal">Add</button>
+                    <button type="button" class="btn text-white bg-custom-purple-70" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="ModalGym" tabindex="-1" role="dialog" aria-labelledby="MLabelGym" aria-hidden="true">
+    <!-- <div class="modal fade" id="ModalGym" tabindex="-1" role="dialog" aria-labelledby="MLabelGym" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -339,7 +336,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
     <button type="button" class="btn btn-dark testshit" data-dismiss="modal">Add</button>
