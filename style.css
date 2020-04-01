@@ -79,6 +79,18 @@ nav {
     background-color: #91d4ac;
 }
 
+.bg-custom-grey-50 {
+    background-color: #808080;
+}
+
+.bg-custom-grey-60 {
+    background-color: #999999;
+}
+
+.bg-custom-grey-70 {
+    background-color: #b3b3b3;
+}
+
 
 /*Text colors*/
 
