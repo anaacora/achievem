@@ -33,6 +33,11 @@
     padding: 0px;
 }
 
+/*--------borders--------*/
+.border-rnd {
+    border-radius: 5px;
+}
+
 /*--------images--------*/
 .img-score {
     height: 150px;
