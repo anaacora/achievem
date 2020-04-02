@@ -1,11 +1,11 @@
-/*profile*/
+/*--------------------Profile--------------------*/
 
 .img-score {
     height: 150px;
     width: 150px;
 }
 
-.img-friendtable {
+.img-friend-table {
     height: 40px;
     width: 40px;
 }
@@ -16,7 +16,7 @@
 }
 
 
-/* Awards */
+/*--------------------Awards--------------------*/
 
 .img-awards {
     height: 75px;
