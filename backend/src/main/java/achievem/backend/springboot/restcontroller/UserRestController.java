@@ -20,8 +20,8 @@ public class UserRestController {
     @Autowired
     private UserRepository repository;
     
-    @RequestMapping(value = "/infmapi/v1/worlds/{name}", method = RequestMethod.GET)
-    public ResponseEntity<List<User>> getWorld(@PathVariable String name){        
+    @RequestMapping(value = "/api/users", method = RequestMethod.GET)
+    public ResponseEntity<List<User>> getWorld(){        
         // Zur Id passende Welt suchen
         List<User> users = repository.findAll();
         return new ResponseEntity(users, HttpStatus.OK);
