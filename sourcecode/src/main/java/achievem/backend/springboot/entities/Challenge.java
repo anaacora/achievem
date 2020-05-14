@@ -13,7 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Challenge implements Serializable {
+public class Challenge  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -26,10 +26,12 @@ public class Challenge implements Serializable {
 
 	@NotNull
 	private String endDate;
-	
 
 	@ManyToMany(mappedBy = "challenges")
 	private Set<Friendship> friendships;
+	
+	@ManyToOne
+	private Award award;
 
 	public String getHashtag() {
 		return hashtag;
@@ -62,4 +64,10 @@ public class Challenge implements Serializable {
 	private void setId(Long id) {
 		this.id = id;
 	}
+
+	public Award getAward() {
+		return award;
+	}
+	
+	
 }
