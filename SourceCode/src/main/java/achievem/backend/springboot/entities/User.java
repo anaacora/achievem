@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -14,7 +15,16 @@ public class User implements Serializable {
     private long id;
     
     @NotNull
-    private String name;
+    private String userName;
+    
+    @NotNull
+    private String registrationDate;
+    
+    @NotNull
+    private String password;
+    
+    @OneToOne
+    private Rank rank;
     
     public Long getId() {
         return id;
@@ -24,11 +34,34 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
+
+	public String getRegistrationDate() {
+		return registrationDate;
+	}
+
+	public void setRegistrationDate(String registrationDate) {
+		this.registrationDate = registrationDate;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Rank getRank() {
+		return rank;
+	}
+	
+    
+    
 }
