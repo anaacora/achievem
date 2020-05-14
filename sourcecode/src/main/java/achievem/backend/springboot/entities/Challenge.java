@@ -26,6 +26,7 @@ public class Challenge implements Serializable {
 
 	@NotNull
 	private String endDate;
+	
 
 	@ManyToMany(mappedBy = "challenges")
 	private Set<Friendship> friendships;
