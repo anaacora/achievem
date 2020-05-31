@@ -10,19 +10,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import achievem.backend.springboot.entities.User;
-import achievem.backend.springboot.repositories.UserRepository;
+import achievem.backend.springboot.entities.Goal;
+import achievem.backend.springboot.repositories.GoalRepository;
+
 
 @RestController
-public class UserRestController {
-    
-    // Verdrahten der Repository-Klasse, um Karten in der Datenbank zu finden
+public class GoalRestController {
+	
+	 // Verdrahten der Repository-Klasse, um Karten in der Datenbank zu finden
     @Autowired
-    private UserRepository repository;
+    private GoalRepository repository;
     
-    @RequestMapping(value = "/api/users", method = RequestMethod.GET)
-    public List<User> findAll() {
+    @RequestMapping(value = "/api/goals", method = RequestMethod.GET)
+    public List<Goal> findAll() {
     	      
         return repository.findAll();
       }
+
 }

@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -17,7 +18,7 @@ import javax.validation.constraints.NotNull;
 public class Award implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 
 	@NotNull
 	private String collectionDate;
@@ -28,19 +29,31 @@ public class Award implements Serializable {
 	@NotNull
 	private int points;
 	
-	@ManyToOne 
+	@ManyToOne
+	@JoinColumn(name = "rank_id", referencedColumnName = "id", nullable = false)
 	private Rank rank;
-
-	public long getId() {
+	
+	public Award(String collectionDate, String category, int points, Rank rank) {
+		this.collectionDate = collectionDate;
+		this.category = category;
+		this.points = points;
+		this.rank = rank;
+	}
+	
+	public Award () {
+		
+	}
+	
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
 	public String getCollectionDate() {
-		return collectionDate;
+		return this.collectionDate;
 	}
 
 	public void setCollectionDate(String collectionDate) {
@@ -48,7 +61,7 @@ public class Award implements Serializable {
 	}
 
 	public String getCategory() {
-		return category;
+		return this.category;
 	}
 
 	public void setCategory(String category) {
@@ -56,7 +69,7 @@ public class Award implements Serializable {
 	}
 
 	public int getPoints() {
-		return points;
+		return this.points;
 	}
 
 	public void setPoints(int points) {
@@ -64,7 +77,7 @@ public class Award implements Serializable {
 	}
 
 	public Rank getRank() {
-		return rank;
+		return this.rank;
 	} 
 	
 

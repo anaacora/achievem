@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -17,7 +18,7 @@ import javax.validation.constraints.NotNull;
 public class Goal implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private int id;
 
 	@NotNull
 	private String name;
@@ -28,34 +29,47 @@ public class Goal implements Serializable {
 	@NotNull
 	private String target;
 	
-	@NotNull
-	private int progress;
+	private String progress;
 
-	@NotNull
 	private String unit;
 
 	@NotNull
 	private String startDate;
 	
-	@NotNull
 	private String endDate;
 	
 	@ManyToOne
+	@JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
 	private User user;
 	
 	@ManyToOne
+	@JoinColumn(name = "award_id", referencedColumnName = "id", nullable = false)
 	private Award award;
+	
+	public Goal(String name, String category, String target, String progress, String unit, String startDate, String endDate, User user, Award award) {
+		this.name = name;
+		this.category = category;
+		this.target = target;
+		this.progress = progress;
+		this.unit = unit ;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.user = user;
+		this.award = award;
+	}
+	
+	public Goal() {}
 
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -63,7 +77,7 @@ public class Goal implements Serializable {
 	}
 
 	public String getCategory() {
-		return category;
+		return this.category;
 	}
 
 	public void setCategory(String category) {
@@ -71,23 +85,23 @@ public class Goal implements Serializable {
 	}
 
 	public String getTarget() {
-		return target;
+		return this.target;
 	}
 
 	public void setTarget(String target) {
 		this.target = target;
 	}
 
-	public int getProgress() {
-		return progress;
+	public String getProgress() {
+		return this.progress;
 	}
 
-	public void setProgress(int progress) {
+	public void setProgress(String progress) {
 		this.progress = progress;
 	}
 
 	public String getUnit() {
-		return unit;
+		return this.unit;
 	}
 
 	public void setUnit(String unit) {
@@ -95,7 +109,7 @@ public class Goal implements Serializable {
 	}
 
 	public String getStartDate() {
-		return startDate;
+		return this.startDate;
 	}
 
 	public void setStartDate(String startDate) {
@@ -103,7 +117,7 @@ public class Goal implements Serializable {
 	}
 
 	public String getEndDate() {
-		return endDate;
+		return this.endDate;
 	}
 
 	public void setEndDate(String endDate) {
@@ -111,12 +125,13 @@ public class Goal implements Serializable {
 	}
 
 	public User getUser() {
-		return user;
+		return this.user;
 	}
 
 	public Award getAward() {
-		return award;
+		return this.award;
 	}
-	
+
+
 
 }

@@ -10,19 +10,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import achievem.backend.springboot.entities.User;
-import achievem.backend.springboot.repositories.UserRepository;
+import achievem.backend.springboot.entities.Challenge;
+import achievem.backend.springboot.entities.Rank;
+import achievem.backend.springboot.repositories.RankRepository;
 
 @RestController
-public class UserRestController {
-    
-    // Verdrahten der Repository-Klasse, um Karten in der Datenbank zu finden
-    @Autowired
-    private UserRepository repository;
-    
-    @RequestMapping(value = "/api/users", method = RequestMethod.GET)
-    public List<User> findAll() {
+public class RankRestController {
+	
+	@Autowired
+	private RankRepository repository;
+	
+	@RequestMapping(value = "/api/ranks", method = RequestMethod.GET)
+    public List<Rank> findAll() {
     	      
         return repository.findAll();
       }
+
 }

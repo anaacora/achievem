@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
@@ -12,7 +14,10 @@ import javax.validation.constraints.NotNull;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
+    
+    @NotNull
+    private String name;
     
     @NotNull
     private String userName;
@@ -24,17 +29,38 @@ public class User implements Serializable {
     private String password;
     
     @OneToOne
+    @JoinColumn(name = "rank_id", referencedColumnName = "id")
     private Rank rank;
     
-    public Long getId() {
+    public User(String name, String userName, String registrationDate, String password, Rank rank) {
+		this.name = name;
+		this.userName = userName;
+		this.registrationDate = registrationDate;
+		this.password = password;
+		this.rank = rank;
+
+	}
+	
+	public User() {}
+    
+    public int getId() {
         return id;
     }
 
-    private void setId(Long id) {
+    private void setId(int id) {
         this.id = id;
     }
+    
 
-    public String getUserName() {
+    public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getUserName() {
         return userName;
     }
 
