@@ -1,17 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Dashboard from '../views/Dashboard.vue'
 import Profile from '../views/Profile.vue'
 import Goal from '../views/Goal.vue'
 import Gamification from '../views/Gamification.vue'
 
 Vue.use(VueRouter)
 
-  const routes = [
-  {
+const routes = [{
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Dashboard',
+    component: Dashboard
   },
   /*{
     path: '/about',
