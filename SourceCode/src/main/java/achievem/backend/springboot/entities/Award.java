@@ -30,14 +30,14 @@ public class Award implements Serializable {
 	private int points;
 	
 	@ManyToOne
-	@JoinColumn(name = "rank_id", referencedColumnName = "id", nullable = false)
-	private Rank rank;
+	@JoinColumn(name = "ranking_id", referencedColumnName = "id", nullable = false)
+	private Ranking ranking;
 	
-	public Award(String collectionDate, String category, int points, Rank rank) {
+	public Award(String collectionDate, String category, int points, Ranking ranking) {
 		this.collectionDate = collectionDate;
 		this.category = category;
 		this.points = points;
-		this.rank = rank;
+		this.ranking = ranking;
 	}
 	
 	public Award () {
@@ -76,8 +76,8 @@ public class Award implements Serializable {
 		this.points = points;
 	}
 
-	public Rank getRank() {
-		return this.rank;
+	public Ranking getRanking() {
+		return this.ranking;
 	} 
 	
 

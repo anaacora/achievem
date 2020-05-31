@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import achievem.backend.springboot.entities.Challenge;
-import achievem.backend.springboot.entities.Rank;
-import achievem.backend.springboot.repositories.RankRepository;
+import achievem.backend.springboot.entities.Ranking;
+import achievem.backend.springboot.repositories.RankingRepository;
 
 @RestController
-public class RankRestController {
+public class RankingRestController {
 	
 	@Autowired
-	private RankRepository repository;
+	private RankingRepository repository;
 	
-	@RequestMapping(value = "/api/ranks", method = RequestMethod.GET)
-    public List<Rank> findAll() {
+	@RequestMapping(value = "/api/rankings", method = RequestMethod.GET)
+    public List<Ranking> findAll() {
     	      
         return repository.findAll();
       }

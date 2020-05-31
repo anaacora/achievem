@@ -1,6 +1,8 @@
 package achievem.backend.springboot.entities;
 
 import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,16 +31,15 @@ public class User implements Serializable {
     private String password;
     
     @OneToOne
-    @JoinColumn(name = "rank_id", referencedColumnName = "id")
-    private Rank rank;
+    @JoinColumn(name = "ranking_id", referencedColumnName = "id", nullable = false)
+    private Ranking ranking;
     
-    public User(String name, String userName, String registrationDate, String password, Rank rank) {
+    public User(String name, String userName, String registrationDate, String password, Ranking ranking) {
 		this.name = name;
 		this.userName = userName;
 		this.registrationDate = registrationDate;
 		this.password = password;
-		this.rank = rank;
-
+		this.ranking = ranking;
 	}
 	
 	public User() {}
@@ -84,8 +85,8 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public Rank getRank() {
-		return rank;
+	public Ranking getRanking() {
+		return ranking;
 	}
 	
     

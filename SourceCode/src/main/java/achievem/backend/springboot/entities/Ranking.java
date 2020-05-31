@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Rank implements Serializable {
+public class Ranking implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -30,18 +30,17 @@ public class Rank implements Serializable {
 	@NotNull
 	private String stage;
 	
-
-	public Rank(int level, int totalScore, String stage) {
+	public Ranking(int level, int totalScore, String stage) {
 		this.level = level;
 		this.totalScore = totalScore;
 		this.stage = stage;
 
 	}
 	
-	public Rank() {}
+	public Ranking() {}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(int id) {
@@ -71,10 +70,5 @@ public class Rank implements Serializable {
 	public void setStage(String stage) {
 		this.stage = stage;
 	}
-
-	
-
-	
-	
 
 }
