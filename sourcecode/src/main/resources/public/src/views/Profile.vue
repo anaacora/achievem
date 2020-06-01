@@ -10,7 +10,7 @@
 
         <div class="row mb-3">
             <div class="col d-flex justify-content-center muted">
-                <img src="../img/profile_ana.png" alt="Profile" class="img-profile rounded-circle">
+                <img src="../img/profile_anaa.png" alt="Profile" class="img-profile rounded-circle">
                 <div>
                     <i class="fas fa-camera hovering ml-1"></i>
                 </div>

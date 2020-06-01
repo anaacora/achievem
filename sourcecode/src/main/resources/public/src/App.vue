@@ -31,7 +31,7 @@
             <router-link class="nav-link" to="/profile">
               <img
                 class="nav_profile_icon rounded-circle"
-                src="./img/profile_ana.png"
+                src="./img/profile_anaa.png"
                 alt="Profile"
               />
             </router-link>

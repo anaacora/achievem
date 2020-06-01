@@ -21,62 +21,16 @@
       <div class="row mb-3">
         <div class="col">
           <ul class="list-group">
-            
-            <!-- dat klappt nisch -->
-            <div v-for="goal in goals" v-bind:key="goal.id">
-              <goal v-bind:goal="goal"></goal>
-            </div>
 
-            <!-- hier ist der temo ersatz -->
-            <!-- <goal v-bind:goalprop="goals[0]"></goal>
-            <goal v-bind:goalprop="goals[1]"></goal>
-            <goal v-bind:goalprop="goals[2]"></goal>
-            <goal v-bind:goalprop="goals[3]"></goal> -->
+            <div v-for="goal in goals" v-bind:key="goal.id">
+              <goal-item v-bind:goal="goal"></goal-item>
+            </div>
 
           </ul>
         </div>
       </div>
     </div>
     <statistics></statistics>
-
-    <!-- Modals -->
-    <add-progress modal-id="ModalWater" goal-category="Health & Food" goal-title="Drink 2l water" unit="l water" color-type="blue" input-steps="0.5"></add-progress>
-
-    <add-progress modal-id="ModalFruit" goal-category="Health & Food" goal-title="Eat 3 fruits" unit="fruits" color-type="blue" input-steps="1"></add-progress>
-
-    <add-progress modal-id="ModalPages" goal-category="Education" goal-title="Read 20 book pages" unit="Pages" color-type="purple" input-steps="1"></add-progress>
-
-    <!-- not shown because task already completed -->
-    <!-- <div class="modal fade" id="ModalGym" tabindex="-1" role="dialog" aria-labelledby="MLabelGym" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="MLabelGym">Go to the gym</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col">
-                            <div>
-                                <button type="button" class="btn btn-block btn-success">Done it</button>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div>
-                                <button type="button" class="btn btn-block btn-danger">Not done</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark toast-sport-show" data-dismiss="modal">Add</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>-->
 
     <!-- Toasts -->
     <div aria-live="polite" aria-atomic="true">
@@ -148,8 +102,6 @@
         </div>
       </div>
     </div>
-
-    <!--<script src="js/statistic_chart.js"></script>-->
   </div>
 </template>
 
@@ -179,23 +131,24 @@
 
 <script>
 // @ is an alias to /src
-
-import Goal from "@/components/Goal.vue";
-import AddProgress from "@/components/AddProgress.vue";
+import GoalItem from "@/components/GoalItem.vue";
 import Statistics from "@/components/Statistics.vue";
 
 export default {
   name: "Dashboard",
   components: {
-    Goal,
-    AddProgress,
+    GoalItem,
     Statistics,
   },
-  goals: [
-    {id: 1, goalId: "ModalWater", goalCategory: "Health & Food", goalTitle: "Drink 2l water", goalUnit: "l water", goalColor: "blue", goalCurrent:"0.5", goalTarget: "2" },
-    {id: 2, goalId: "ModalFruit", goalCategory: "Health & Food", goalTitle: "Eat 3 fruits", goalUnit: "Fruits", goalColor: "blue", goalCurrent:"0", goalTarget: "3" },
-    {id: 3, goalId: "ModalPages", goalCategory: "Education", goalTitle: "Read 20 book pages", goalUnit: "Pages", goalColor: "purple", goalCurrent:"15", goalTarget: "20" },
-    {id: 4, goalId: "ModalGym", goalCategory: "Sports", goalTitle: "Go to the gym", goalUnit: "DONE", goalColor: "orange", goalCurrent:"1", goalTarget: "1" },
-  ]
+  data() {
+    return {
+      goals: [
+        {id: 1, goalModal:"WaterModal", goalCategory: "Health & Food", goalTitle: "Drink 2l water", goalUnit: "l water", goalColor: "blue", goalCurrent:0.5, goalTarget: 2, inputSteps:0.5 },
+        {id: 2, goalModal:"FruitModal", goalCategory: "Health & Food", goalTitle: "Eat 3 fruits", goalUnit: "Fruits", goalColor: "blue", goalCurrent:0, goalTarget: 3, inputSteps:1 },
+        {id: 3, goalModal:"PagesModal", goalCategory: "Education", goalTitle: "Read 20 book pages", goalUnit: "Pages", goalColor: "purple", goalCurrent:15, goalTarget: 20, inputSteps:1 },
+        {id: 4, goalModal:"SportModal", goalCategory: "Sports", goalTitle: "Go to the gym", goalUnit: "DONE", goalColor: "orange", goalCurrent:1, goalTarget: 1, inputSteps:1 },
+      ]
+    }
+  }
 };
 </script>
