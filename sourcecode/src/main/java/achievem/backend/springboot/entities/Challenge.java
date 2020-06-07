@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
 public class Challenge  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
 	private String hashtag;
 
@@ -69,11 +69,11 @@ public class Challenge  {
 		this.endDate = endDate;
 	}
 
-	public int getId() {
-		return id;
+	public long getId() {
+		return this.id;
 	}
 
-	private void setId(int id) {
+	private void setId(long id) {
 		this.id = id;
 	}
 

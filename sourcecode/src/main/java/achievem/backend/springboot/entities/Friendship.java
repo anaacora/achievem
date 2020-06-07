@@ -17,7 +17,7 @@ import javax.validation.constraints.NotNull;
 public class Friendship implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
 	@NotNull
 	private User userOne;
@@ -40,11 +40,11 @@ public class Friendship implements Serializable {
 	@JoinTable(name = "friendship_challenge", joinColumns = @JoinColumn(name = "friendship_id"), inverseJoinColumns = @JoinColumn(name = "challenge_id"))
 	private Set<Challenge> challenges;
 
-	public int getId() {
-		return id;
+	public long getId() {
+		return this.id;
 	}
 
-	private void setId(int id) {
+	private void setId(long id) {
 		this.id = id;
 	}
 

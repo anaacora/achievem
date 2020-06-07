@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     
     @NotNull
     private String name;
@@ -44,11 +44,11 @@ public class User implements Serializable {
 	
 	public User() {}
     
-    public int getId() {
-        return id;
+    public long getId() {
+        return this.id;
     }
 
-    private void setId(int id) {
+    private void setId(long id) {
         this.id = id;
     }
     

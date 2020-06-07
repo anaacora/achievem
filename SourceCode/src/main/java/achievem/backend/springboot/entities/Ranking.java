@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 public class Ranking implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
 	@NotNull
 	private int level;
@@ -39,11 +39,11 @@ public class Ranking implements Serializable {
 	
 	public Ranking() {}
 
-	public int getId() {
+	public long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
