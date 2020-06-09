@@ -130,9 +130,14 @@
 </style>
 
 <script>
+
 // @ is an alias to /src
 import GoalItem from "@/components/GoalItem.vue";
 import Statistics from "@/components/Statistics.vue";
+
+import { getUserId } from '../assets/auth.js';
+
+import axios from 'axios'
 
 export default {
   name: "Dashboard",
@@ -147,8 +152,31 @@ export default {
         {id: 2, goalModal:"FruitModal", goalCategory: "Health & Food", goalTitle: "Eat 3 fruits", goalUnit: "Fruits", goalColor: "blue", goalCurrent:0, goalTarget: 3, inputSteps:1 },
         {id: 3, goalModal:"PagesModal", goalCategory: "Education", goalTitle: "Read 20 book pages", goalUnit: "Pages", goalColor: "purple", goalCurrent:15, goalTarget: 20, inputSteps:1 },
         {id: 4, goalModal:"SportModal", goalCategory: "Sports", goalTitle: "Go to the gym", goalUnit: "DONE", goalColor: "orange", goalCurrent:1, goalTarget: 1, inputSteps:1 },
-      ]
+      ],
+
+      // Here comes good data
+      id: 1,
+      user:null,
+      userGoals: null,
     }
-  }
+  },
+
+  mounted() {
+    getUserId(this.id);
+    this.userGoals = this.getGoalsFromUser(this.user);
+  },
+  
+  methods: {
+    getGoalsFromUser(userId){
+      axios.get('/api/goals/userId='+userId)
+        .then((response)=>{
+          console.log(response.data);
+          return response.data;
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+    }
+  },
 };
 </script>

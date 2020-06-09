@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Dashboard from '../views/Dashboard.vue'
 import Profile from '../views/Profile.vue'
 import Goal from '../views/Goal.vue'
