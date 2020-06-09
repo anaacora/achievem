@@ -39,7 +39,7 @@ function initChart() {
 }
 
 //updates the chart
-function updateChart(data) {
+function updateChart() {
 
     //get new data as param probably
 
@@ -50,7 +50,7 @@ function updateChart(data) {
 
     //add colorcodes as attribute to categories in DB -> easier
     var categories = ["blue", "purple", "orange", "green"];
-    var category = categories[0];
+    var category = categories[2];
 
     //COLORS USED: always 50 % & 70 %
 
