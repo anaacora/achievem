@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import achievem.backend.springboot.entities.Award;
 import achievem.backend.springboot.repositories.AwardRepository;
 
@@ -21,17 +20,14 @@ public class AwardRestController {
 	
 	@RequestMapping(value = "/api/awards", method = RequestMethod.GET)  
 	public ResponseEntity<List<Award>> getAwards(){
+		
 		List<Award> result = this.repository.findAll();
 		
 		if (!result.isEmpty()) {
-			return new ResponseEntity<List<Award>>(
-					result, HttpStatus.OK);
+			return new ResponseEntity<List<Award>>(result, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<List<Award>>(
-				HttpStatus.NOT_FOUND);
-	
-	}
-			 
+			return new ResponseEntity<List<Award>>(HttpStatus.NOT_FOUND);
+		}
 	}	
 	
 

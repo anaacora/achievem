@@ -20,6 +20,7 @@ public class ChallengeRestController {
     
     @RequestMapping(value = "/api/challenges", method = RequestMethod.GET)
     public ResponseEntity<List<Challenge>> getChallenges(){
+    	
     	List<Challenge> result = this.repository.findAll();
     	
     	if (!result.isEmpty()) {

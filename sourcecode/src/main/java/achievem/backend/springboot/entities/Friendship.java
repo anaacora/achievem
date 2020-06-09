@@ -1,7 +1,6 @@
 package achievem.backend.springboot.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -15,9 +14,10 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Friendship implements Serializable {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@NotNull
 	private User userOne;
@@ -40,11 +40,11 @@ public class Friendship implements Serializable {
 	@JoinTable(name = "friendship_challenge", joinColumns = @JoinColumn(name = "friendship_id"), inverseJoinColumns = @JoinColumn(name = "challenge_id"))
 	private Set<Challenge> challenges;
 
-	public long getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	private void setId(long id) {
+	private void setId(Long id) {
 		this.id = id;
 	}
 
@@ -94,7 +94,5 @@ public class Friendship implements Serializable {
 
 	public void setFriendshipDate(String friendshipDate) {
 		this.friendshipDate = friendshipDate;
-	}
-	
-	
+	}	
 }

@@ -20,16 +20,13 @@ public class FriendshipRestController {
     
     @RequestMapping(value = "/api/friendships", method = RequestMethod.GET)
     public ResponseEntity<List<Friendship>> getFriendships(){
+    	
     	List<Friendship> result = this.repository.findAll();
     	      
-    			if (!result.isEmpty()) {
-    				return new ResponseEntity<List<Friendship>>(
-    						result, HttpStatus.OK);
-    			} else {
-    				return new ResponseEntity<List<Friendship>>(
-    					HttpStatus.NOT_FOUND);
-    		}
-      }
-	
-
+		if (!result.isEmpty()) {
+			return new ResponseEntity<List<Friendship>>(result, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Friendship>>(HttpStatus.NOT_FOUND);
+    	}
+    }
 }
