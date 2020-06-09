@@ -1,24 +1,21 @@
 package achievem.backend.springboot.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Award implements Serializable {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	private Long id;
 
 	@NotNull
 	private String collectionDate;
@@ -44,11 +41,11 @@ public class Award implements Serializable {
 		
 	}
 	
-	public long getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -78,7 +75,5 @@ public class Award implements Serializable {
 
 	public Ranking getRanking() {
 		return this.ranking;
-	} 
-	
-
+	}
 }
