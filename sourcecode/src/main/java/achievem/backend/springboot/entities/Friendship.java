@@ -28,21 +28,23 @@ public class Friendship implements Serializable {
 	@NotNull
 	private String startDate;
 
-	@NotNull
 	private String endDate;
 
 	@NotNull
 	private String status;
+	
+	@NotNull
+	private String friendshipDate;
 
 	@ManyToMany
 	@JoinTable(name = "friendship_challenge", joinColumns = @JoinColumn(name = "friendship_id"), inverseJoinColumns = @JoinColumn(name = "challenge_id"))
 	private Set<Challenge> challenges;
 
-	public Long getId() {
-		return id;
+	public long getId() {
+		return this.id;
 	}
 
-	private void setId(Long id) {
+	private void setId(long id) {
 		this.id = id;
 	}
 
@@ -85,4 +87,14 @@ public class Friendship implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public String getFriendshipDate() {
+		return friendshipDate;
+	}
+
+	public void setFriendshipDate(String friendshipDate) {
+		this.friendshipDate = friendshipDate;
+	}
+	
+	
 }

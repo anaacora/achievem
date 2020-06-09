@@ -8,17 +8,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Challenge implements Serializable {
+public class Challenge  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@NotNull
 	private String hashtag;
 
 	@NotNull
@@ -27,11 +28,25 @@ public class Challenge implements Serializable {
 	@NotNull
 	private String endDate;
 
-	@ManyToMany(mappedBy = "challenges")
-	private Set<Friendship> friendships;
+	@ManyToOne
+	@JoinColumn(name = "award_id", referencedColumnName = "id", nullable = false)
+	private Award award;
+	
+	@ManyToMany (mappedBy = "challenges")
+	private Set<Friendship> challenges;
 
+	
+	public Challenge(String hashtag, String startDate, String endDate, Award award) {
+		this.hashtag = hashtag;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.award = award; 
+	}
+	
+	public Challenge() {}
+	
 	public String getHashtag() {
-		return hashtag;
+		return this.hashtag;
 	}
 
 	public void setHashtag(String hashtag) {
@@ -39,7 +54,7 @@ public class Challenge implements Serializable {
 	}
 
 	public String getStartDate() {
-		return startDate;
+		return this.startDate;
 	}
 
 	public void setStartDate(String startDate) {
@@ -47,18 +62,25 @@ public class Challenge implements Serializable {
 	}
 
 	public String getEndDate() {
-		return endDate;
+		return this.endDate;
 	}
 
 	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
 
-	public Long getId() {
-		return id;
+	public long getId() {
+		return this.id;
 	}
 
-	private void setId(Long id) {
+	private void setId(long id) {
 		this.id = id;
 	}
+
+	public Award getAward() {
+		return this.award;
+	}
+	
+	
+	
 }
