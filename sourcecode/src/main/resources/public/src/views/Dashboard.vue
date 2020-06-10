@@ -17,367 +17,20 @@
           </div>
         </div>
       </div>
-
+      
       <div class="row mb-3">
         <div class="col">
           <ul class="list-group">
-            <li
-              class="list-group-item list-group-item-action list-group-item-light"
-              data-toggle="modal"
-              data-target="#ModalWater"
-            >
-              <div class="d-flex justify-content-between">
-                <div class="col-4 p-0">
-                  <span>Drink 2l water</span>
-                </div>
-                <div class="col-4 text-center p-0">
-                  <span class="txt-custom-blue-50">Health & Food</span>
-                </div>
-                <div class="col-4 text-right p-0">
-                  <span class="badge bg-custom-blue-50 badge-pill">0.5l / 2l</span>
-                </div>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-custom-blue-50"
-                  role="progressbar"
-                  style="width: 25%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-                <div
-                  class="progress-bar bg-custom-blue-70"
-                  role="progressbar"
-                  style="width: 75%"
-                  aria-valuenow="75"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </li>
-            <li
-              class="list-group-item list-group-item-action list-group-item-light"
-              data-toggle="modal"
-              data-target="#ModalFruit"
-            >
-              <div class="d-flex justify-content-between">
-                <div class="col-4 p-0">
-                  <span>Eat 3 fruits</span>
-                </div>
-                <div class="col-4 text-center p-0">
-                  <span class="txt-custom-blue-50">Health & Food</span>
-                </div>
-                <div class="col-4 text-right p-0">
-                  <span class="badge bg-custom-blue-50 badge-pill">0 / 3 fruits</span>
-                </div>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-custom-blue-50"
-                  role="progressbar"
-                  style="width: 0%"
-                  aria-valuenow="0"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-                <div
-                  class="progress-bar bg-custom-blue-70"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuenow="100"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </li>
-            <li
-              class="list-group-item list-group-item-action list-group-item-light"
-              data-toggle="modal"
-              data-target="#ModalPages"
-            >
-              <div class="d-flex justify-content-between">
-                <div class="col-4 p-0">
-                  <span>Read 20 book pages</span>
-                </div>
-                <div class="col-4 text-center p-0">
-                  <span class="txt-custom-purple-50">Education</span>
-                </div>
-                <div class="col-4 text-right p-0">
-                  <span class="badge bg-custom-purple-50 badge-pill">15 / 20 pages</span>
-                </div>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-custom-purple-50"
-                  role="progressbar"
-                  style="width: 75%"
-                  aria-valuenow="75"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-                <div
-                  class="progress-bar bg-custom-purple-70"
-                  role="progressbar"
-                  style="width: 25%"
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </li>
-            <li
-              class="list-group-item list-group-item-action list-group-item-light"
-              data-toggle="modal"
-              data-target="#ModalGym"
-            >
-              <div class="d-flex justify-content-between">
-                <div class="col-4 p-0">
-                  <span>Go to the gym</span>
-                </div>
-                <div class="col-4 text-center p-0">
-                  <span class="txt-custom-orange-50">Sports</span>
-                </div>
-                <div class="col-4 text-right p-0">
-                  <span class="badge bg-custom-orange-50 badge-pill">DONE</span>
-                </div>
-              </div>
-              <div class="progress">
-                <div
-                  class="progress-bar bg-custom-orange-50"
-                  role="progressbar"
-                  style="width: 100%"
-                  aria-valuenow="0"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-                <div
-                  class="progress-bar bg-custom-orange-70"
-                  role="progressbar"
-                  style="width: 0%"
-                  aria-valuenow="100"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-            </li>
+
+            <div v-for="goal in goals" v-bind:key="goal.id">
+              <goal-item v-bind:goal="goal"></goal-item>
+            </div>
+
           </ul>
         </div>
       </div>
     </div>
-
     <statistics></statistics>
-
-    <!-- Modals -->
-    <div
-      class="modal fade"
-      id="ModalWater"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="MLabelWater"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5
-              class="modal-title txt-custom-blue-50"
-              id="MLabelWater"
-            >Health & Food: Drink 2l water</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                  <label for="counterInput">Add progress to your goal!</label>
-                  <div class="input-group">
-                    <input
-                      type="number"
-                      step="0.5"
-                      class="form-control"
-                      id="counterInput"
-                      value="1"
-                      aria-label="counterLabelAppend"
-                      aria-describedby="counter"
-                    />
-                    <div class="input-group-append">
-                      <span
-                        class="input-group-text text-white bg-custom-blue-70"
-                        id="counterLabelAppend"
-                      >l water</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn text-white bg-custom-blue-50 toast-health-show"
-              data-dismiss="modal"
-            >Add</button>
-            <button
-              type="button"
-              class="btn text-white bg-custom-blue-70"
-              data-dismiss="modal"
-            >Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="modal fade"
-      id="ModalFruit"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="MLabelFruit"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title txt-custom-blue-50" id="MLabelFruit">Health & Food: Eat 3 fruits</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                  <label for="counterInput">Add progress to your goal!</label>
-                  <div class="input-group">
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="counterInput"
-                      value="1"
-                      aria-label="counterLabelAppend"
-                      aria-describedby="counter"
-                    />
-                    <div class="input-group-append">
-                      <span
-                        class="input-group-text text-white bg-custom-blue-70"
-                        id="counterLabelAppend"
-                      >fruits</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn text-white bg-custom-blue-50 toast-health-show"
-              data-dismiss="modal"
-            >Add</button>
-            <button
-              type="button"
-              class="btn text-white bg-custom-blue-70"
-              data-dismiss="modal"
-            >Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="modal fade"
-      id="ModalPages"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="MLabelPages"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5
-              class="modal-title txt-custom-purple-50"
-              id="MLabelPages"
-            >Education: Read 20 book pages</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-              <div class="col">
-                <div class="form-group">
-                  <label for="counterInput">Add progress to your goal!</label>
-                  <div class="input-group">
-                    <input
-                      type="number"
-                      class="form-control"
-                      id="counterInput"
-                      value="1"
-                      aria-label="counterLabelAppend"
-                      aria-describedby="counter"
-                    />
-                    <div class="input-group-append">
-                      <span
-                        class="input-group-text text-white bg-custom-purple-70"
-                        id="counterLabelAppend"
-                      >Pages</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn text-white bg-custom-purple-50 toast-edu-show"
-              data-dismiss="modal"
-            >Add</button>
-            <button
-              type="button"
-              class="btn text-white bg-custom-purple-70"
-              data-dismiss="modal"
-            >Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- not shown because task already completed -->
-    <!-- <div class="modal fade" id="ModalGym" tabindex="-1" role="dialog" aria-labelledby="MLabelGym" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="MLabelGym">Go to the gym</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col">
-                            <div>
-                                <button type="button" class="btn btn-block btn-success">Done it</button>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div>
-                                <button type="button" class="btn btn-block btn-danger">Not done</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark toast-sport-show" data-dismiss="modal">Add</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>-->
 
     <!-- Toasts -->
     <div aria-live="polite" aria-atomic="true">
@@ -449,8 +102,6 @@
         </div>
       </div>
     </div>
-
-    <!--<script src="js/statistic_chart.js"></script>-->
   </div>
 </template>
 
@@ -459,15 +110,6 @@
   padding: 0px;
   margin: 0px;
   display: inline;
-}
-
-.progress {
-  height: 5px;
-  margin-top: 5px;
-}
-
-.badge-pill {
-  color: white;
 }
 
 .statistic {
@@ -488,13 +130,53 @@
 </style>
 
 <script>
+
 // @ is an alias to /src
+import GoalItem from "@/components/GoalItem.vue";
 import Statistics from "@/components/Statistics.vue";
+
+import { getUserId } from '../assets/auth.js';
+
+import axios from 'axios'
 
 export default {
   name: "Dashboard",
   components: {
-    Statistics
-  }
+    GoalItem,
+    Statistics,
+  },
+  data() {
+    return {
+      goals: [
+        {id: 1, goalModal:"WaterModal", goalCategory: "Health & Food", goalTitle: "Drink 2l water", goalUnit: "l water", goalColor: "blue", goalCurrent:0.5, goalTarget: 2, inputSteps:0.5 },
+        {id: 2, goalModal:"FruitModal", goalCategory: "Health & Food", goalTitle: "Eat 3 fruits", goalUnit: "Fruits", goalColor: "blue", goalCurrent:0, goalTarget: 3, inputSteps:1 },
+        {id: 3, goalModal:"PagesModal", goalCategory: "Education", goalTitle: "Read 20 book pages", goalUnit: "Pages", goalColor: "purple", goalCurrent:15, goalTarget: 20, inputSteps:1 },
+        {id: 4, goalModal:"SportModal", goalCategory: "Sports", goalTitle: "Go to the gym", goalUnit: "DONE", goalColor: "orange", goalCurrent:1, goalTarget: 1, inputSteps:1 },
+      ],
+
+      // Here comes good data
+      id: 1,
+      user:null,
+      userGoals: null,
+    }
+  },
+
+  mounted() {
+    getUserId(this.id);
+    this.userGoals = this.getGoalsFromUser(this.user);
+  },
+  
+  methods: {
+    getGoalsFromUser(userId){
+      axios.get('/api/goals/userId='+userId)
+        .then((response)=>{
+          console.log(response.data);
+          return response.data;
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+    }
+  },
 };
 </script>

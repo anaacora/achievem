@@ -10,162 +10,33 @@
 
         <div class="row mb-3">
             <div class="col d-flex justify-content-center muted">
-                <img src="../img/profile_ana.png" alt="Profile" class="img-score rounded-circle">
+                <img src="../img/profile_anaa.png" alt="Profile" class="img-score rounded-circle">
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col d-flex justify-content-center muted">
                 <div>
-                    <h4 class="no-space hovering font-weight-bold">1'350<i class="fas fa-share-alt hovering ml-1"></i></h4>
+                    <h4 class="no-space hovering font-weight-bold">{{currentUser.totalScore}}<i class="fas fa-share-alt hovering ml-1"></i></h4>
                 </div>
             </div>
         </div>
 
         <div class="row mb-3">
-            <div class="col border text-center ml-3 mr-2 rounded align-middle">
-                <h5 class="font-weight-bold mt-5"><span>Level</span></h5>
-                <h2 class="font-weight-bold"><span>8</span></h2>
-                <div class="progress">
-                    <div class="progress-bar bg-custom-grey-50" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                    <div class="progress-bar bg-custom-grey-70" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <p class="mt-2">Next level in 550 points</p>
-                <!-- <h5 class="font-weight-bold"><span>Rookie</span></h5> -->
-            </div>
-            <div class="col border mr-3 ml-2 pt-3 pb-2 rounded">
-                <div class="text-center">
-                    <h5 class="font-weight-bold"><span>Your friends</span></h5>
-                </div>
-                <table class="table table-borderless text-right">
-                    <tbody>
-                        <tr class="font-weight-bold">
-                            <th scope="row" class="text-center">
-                                <img src="../img/profile_ana.png" alt="Profile" class="img-friend-table rounded-circle">
-                            </th>
-                            <td class="text-left align-middle">Me</td>
-                            <td class="align-middle">1'350</td>
-                            <td class="align-middle">Lvl. 8</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="text-center">
-                                <img src="../img/profile_denise.png" alt="Profile" class="img-friend-table rounded-circle">
-                            </th>
-                            <td class="text-left align-middle">Denise</td>
-                            <td class="align-middle">1'300</td>
-                            <td class="align-middle">Lvl. 8</td>
-                        </tr>
-                        <tr>
-                            <th scope="row" class="text-center align-middle">
-                                <img src="../img/profile_christian.png" alt="Profile" class="img-friend-table rounded-circle">
-                            </th>
-                            <td class="text-left align-middle">Christian</td>
-                            <td class="align-middle">950</td>
-                            <td class="align-middle">Lvl. 7</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="text-center">
-                    <button type="button" class="btn btn-dark mb-2" data-toggle="modal" data-target="#ModalChallengeAFriend">Challenge a friend</button>
-                </div>
-            </div>
-        </div>
 
+            <ranking v-bind:user="currentUser"></ranking>
+            <friend-table v-bind:user="currentUser" v-bind:friends="friends"></friend-table>
+
+            
+        </div>
         <div class="row mb-3">
             <div class="col">
                 <ul class="list-group">
-                    <li class="list-group-item list-group-item-action list-group-item-light mb-2 border rounded">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <span>Challenge win: Against</span>
-                                <img src="../img/profile_denise.png" alt="Profile" class="img-awards-profile rounded-circle">
-                                <span>Denise</span>
-                                <p class="txt-custom-purple-50 m-0">+ 100</p>
-                            </div>
-                            <div>
-                                <img src="../img/100_points.png" alt="Award" class="img-awards">
-                            </div>
-                        </div>
+
+                    <li class="list-group-item list-group-item-action list-group-item-light mb-2 border rounded" v-for="award in awards" :key="award.id">
+                        <award v-bind:award="award"></award>
                     </li>
 
-                    <li class="list-group-item list-group-item-action list-group-item-light mb-2 border rounded">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <span>Streak 3x:</span>
-                                <span>Completed daily goals 3 times in a row</span>
-                                <p class="txt-custom-blue-50 m-0">+ 200</p>
-                            </div>
-                            <div>
-                                <img src="../img/200_points.png" alt="Award" class="img-awards">
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item list-group-item-action list-group-item-light mb-2 border rounded">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <span>Completed all goals for today</span>
-                                <span>(05.03.)</span>
-                                <p class="txt-custom-purple-50 m-0">+ 100</p>
-                            </div>
-                            <div>
-                                <img src="../img/100_points.png" alt="Award" class="img-awards">
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item list-group-item-action list-group-item-light mb-2 border rounded">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <span>Completed all goals for today</span>
-                                <span>(04.03.)</span>
-                                <p class="txt-custom-purple-50 m-0">+ 100</p>
-                            </div>
-                            <div>
-                                <img src="../img/100_points.png" alt="Award" class="img-awards">
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item list-group-item-action list-group-item-light mb-2 border rounded">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <span>Challenge win: Against</span>
-                                <img src="../img/profile_christian.png" alt="Profile" class="img-awards-profile rounded-circle">
-                                <span>Christian</span>
-                                <p class="txt-custom-purple-50 m-0">+ 100</p>
-                            </div>
-                            <div>
-                                <img src="../img/100_points.png" alt="Award" class="img-awards">
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item list-group-item-action list-group-item-light mb-2 border rounded">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <span>Completed goal:</span>
-                                <span>Eat a fruit</span>
-                                <p class="txt-custom-orange-50 m-0">+ 50</p>
-                            </div>
-                            <div>
-                                <img src="../img/50_points.png" alt="Award" class="img-awards">
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="list-group-item list-group-item-action list-group-item-light mb-2 border rounded">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div>
-                                <span>Completed goal:</span>
-                                <span>Drink 2l water</span>
-                                <p class="txt-custom-orange-50 m-0">+ 50</p>
-                            </div>
-                            <div>
-                                <img src="../img/50_points.png" alt="Award" class="img-awards">
-                            </div>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -173,124 +44,22 @@
 
 
     <!-- Modals -->
+    <challenge-modal v-bind:goals="goals" v-bind:friends="friends"></challenge-modal>
 
-    <div class="modal fade" id="ModalChallengeAFriend" tabindex="-1" role="dialog" aria-labelledby="MLabelCAF" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="MLabelCAF">Challenge a friend</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row mb-3">
-                        <div class="col">
-                            <ul class="list-group">
-                                <p class="mt-3">What goal do you want to challenge?</p>
-                                <li class="list-group-item list-group-item-action list-group-item-light">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span>Drink 2l water</span>
-                                        <span class="txt-custom-blue-50">Health & Food</span>
-                                    </div>
-                                </li>
-                                <li class="list-group-item list-group-item-action list-group-item-light">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span>Eat 3 fruits</span>
-                                        <span class="txt-custom-blue-50">Health & Food</span>
-                                    </div>
-                                </li>
-                                <li class="list-group-item list-group-item-action list-group-item-light">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span>Read 20 book pages</span>
-                                        <span class="txt-custom-purple-50">Education</span>
-                                    </div>
-                                </li>
-                                <li class="list-group-item list-group-item-action list-group-item-light goal_done">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span>Go to the gym</span>
-                                        <span class="txt-custom-orange-50">Sports</span>
-                                    </div>
-                                </li>
-
-
-
-                                <p class="mt-3">Who do you want to challenge?</p>
-                                <li class="list-group-item list-group-item-action list-group-item-light">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="col p-0 text-left">
-                                            <img src="../img/profile_denise.png" alt="Profile" class="img-awards-profile rounded-circle">
-                                            <span>Denise</span>
-                                        </div>
-                                        <div class="col p-0 text-right">
-                                            <span>1'300</span>
-                                        </div>
-                                        <div class="col p-0 text-right">
-                                            <span>Lvl. 8</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item list-group-item-action list-group-item-light">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="col p-0 text-left">
-                                            <img src="../img/profile_christian.png" alt="Profile" class="img-awards-profile rounded-circle">
-                                            <span>Christian</span>
-                                        </div>
-                                        <div class="col p-0 text-right">
-                                            <span>950</span>
-                                        </div>
-                                        <div class="col p-0 text-right">
-                                            <span>Lvl. 7</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item list-group-item-action list-group-item-light">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="col p-0 text-left">
-                                            <img src="../img/profile_silvan.png" alt="Profile" class="img-awards-profile rounded-circle">
-                                            <span>Silvan</span>
-                                        </div>
-                                        <div class="col p-0 text-right">
-                                            <span>900</span>
-                                        </div>
-                                        <div class="col p-0 text-right">
-                                            <span>Lvl. 7</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Challenge!</button>
-                </div>
-            </div>
-        </div>
-    </div>
   </div>
 </template>
 
 <style scoped>
-/*--------------------Profile--------------------*/
-
 .img-score {
     height: 150px;
     width: 150px;
 }
 
-.img-friend-table {
-    height: 40px;
-    width: 40px;
-}
 
 .img-awards-profile {
     height: 25px;
     width: 25px;
 }
-
-
-/*--------------------Awards--------------------*/
 
 .img-awards {
     height: 75px;
@@ -300,12 +69,45 @@
 
 <script>
 // @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
+import Ranking from '@/components/Ranking.vue'
+import FriendTable from '@/components/FriendTable.vue'
+import Award from '@/components/Award.vue'
+import ChallengeModal from '@/components/ChallengeModal.vue'
 
 export default {
   name: 'Gamification',
   components: {
-     // HelloWorld,
+     Ranking,
+     FriendTable,
+     Award,
+     ChallengeModal,
+  },
+  data() {
+    return {
+        currentUser:{
+            name:"Anaa", totalScore: 1400, level: 9, LevelScore:100, nextLevel:450, profile: require("@/img/profile_anaa.png")
+        },
+        friends:[
+            {id:1, name:"Denise", totalScore: 1250, level: 9, profile: require("@/img/profile_denise.png")},
+            {id:2, name:"Christian", totalScore: 1000, level: 8, profile: require("@/img/profile_christian.png")},
+            {id:3, name:"Silvan", totalScore: 700, level: 6, profile: require("@/img/profile_silvan.png")},
+        ],
+        awards:[
+            {id:1, text:"Challenge win: Against ", points: 100, icon:require("@/img/100_points.png"), color: "purple", friendimg:require("@/img/profile_denise.png"), friend:"Denise" },
+            {id:2, text:"Streak 3x: Completed daily goals 3 times in a row", points: 200, icon:require("@/img/200_points.png"), color: "blue"},
+            {id:3, text:"Completed all goals for today (05.03.)", points: 100, icon:require("@/img/100_points.png"), color: "purple"},
+            {id:4, text:"Completed all goals for today (04.03.)", points: 100, icon:require("@/img/100_points.png"), color: "purple"},
+            {id:5, text:"Challenge win: Against ", points: 100, icon:require("@/img/100_points.png"), color: "purple", friendimg:require("@/img/profile_christian.png"), friend:"Christian" },
+            {id:6, text:"Completed goal: Eat 3 Fruits", points: 50, icon:require("@/img/50_points.png"), color: "orange"},
+            {id:7, text:"Completed goal: Drink 2l water", points: 50, icon:require("@/img/50_points.png"), color: "orange"},
+        ],
+        goals: [
+        {id: 1, goalModal:"WaterModal", goalCategory: "Health & Food", goalTitle: "Drink 2l water", goalUnit: "l water", goalColor: "blue", goalCurrent:0.5, goalTarget: 2, inputSteps:0.5 },
+        {id: 2, goalModal:"FruitModal", goalCategory: "Health & Food", goalTitle: "Eat 3 fruits", goalUnit: "Fruits", goalColor: "blue", goalCurrent:0, goalTarget: 3, inputSteps:1 },
+        {id: 3, goalModal:"PagesModal", goalCategory: "Education", goalTitle: "Read 20 book pages", goalUnit: "Pages", goalColor: "purple", goalCurrent:15, goalTarget: 20, inputSteps:1 },
+        {id: 4, goalModal:"SportModal", goalCategory: "Sports", goalTitle: "Go to the gym", goalUnit: "DONE", goalColor: "orange", goalCurrent:1, goalTarget: 1, inputSteps:1 },
+      ]
+    }
   }
 }
 </script>
