@@ -1,6 +1,7 @@
 package achievem.backend.springboot.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,9 +34,9 @@ public class Goal implements Serializable {
 	private String unit;
 
 	@NotNull
-	private String startDate;
+	private Date startDate;
 	
-	private String endDate;
+	private Date endDate;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
@@ -45,7 +46,7 @@ public class Goal implements Serializable {
 	@JoinColumn(name = "award_id", referencedColumnName = "id", nullable = false)
 	private Award award;
 	
-	public Goal(String name, String category, String target, String progress, String unit, String startDate, String endDate, User user, Award award) {
+	public Goal(String name, String category, String target, String progress, String unit, Date startDate, Date endDate, User user, Award award) {
 		this.name = name;
 		this.category = category;
 		this.target = target;
@@ -107,19 +108,19 @@ public class Goal implements Serializable {
 		this.unit = unit;
 	}
 
-	public String getStartDate() {
+	public Date getStartDate() {
 		return this.startDate;
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getEndDate() {
+	public Date getEndDate() {
 		return this.endDate;
 	}
 
-	public void setEndDate(String endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
@@ -130,7 +131,4 @@ public class Goal implements Serializable {
 	public Award getAward() {
 		return this.award;
 	}
-
-
-
 }

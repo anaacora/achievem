@@ -1,5 +1,6 @@
 package achievem.backend.springboot.entities;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -21,10 +22,9 @@ public class Challenge  {
 	private String hashtag;
 
 	@NotNull
-	private String startDate;
+	private Date startDate;
 
-	@NotNull
-	private String endDate;
+	private Date endDate;
 
 	@ManyToOne
 	@JoinColumn(name = "award_id", referencedColumnName = "id", nullable = false)
@@ -32,9 +32,8 @@ public class Challenge  {
 	
 	@ManyToMany (mappedBy = "challenges")
 	private Set<Friendship> challenges;
-
 	
-	public Challenge(String hashtag, String startDate, String endDate, Award award) {
+	public Challenge(String hashtag, Date startDate, Date endDate, Award award) {
 		this.hashtag = hashtag;
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -51,19 +50,19 @@ public class Challenge  {
 		this.hashtag = hashtag;
 	}
 
-	public String getStartDate() {
+	public Date getStartDate() {
 		return this.startDate;
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getEndDate() {
+	public Date getEndDate() {
 		return this.endDate;
 	}
 
-	public void setEndDate(String endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
 
@@ -78,7 +77,4 @@ public class Challenge  {
 	public Award getAward() {
 		return this.award;
 	}
-	
-	
-	
 }

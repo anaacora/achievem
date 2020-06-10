@@ -31,10 +31,10 @@ public class RankingRestController {
 			return new ResponseEntity<List<Ranking>>(HttpStatus.NOT_FOUND);
 		}
 	}     
-	
+		
 	@RequestMapping(value= "/api/rankings/{id}", method = RequestMethod.PUT)
-	  Ranking replaceRanking(@RequestBody Ranking newRanking, @PathVariable Long id) {
-
+	Ranking replaceRanking(@RequestBody Ranking newRanking, @PathVariable Long id) {
+	
 	    return repository.findById(id)
 	      .map(ranking -> {
 		        ranking.setLevel(newRanking.getLevel());
@@ -46,5 +46,5 @@ public class RankingRestController {
 		        newRanking.setId(id);
 		        return repository.save(newRanking);
 	      });
-	    }
+	 }
 }

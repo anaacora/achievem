@@ -1,6 +1,7 @@
 package achievem.backend.springboot.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class User implements Serializable {
     private String userName;
     
     @NotNull
-    private String registrationDate;
+    private Date registrationDate;
     
     @NotNull
     private String password;
@@ -33,7 +34,7 @@ public class User implements Serializable {
     @JoinColumn(name = "ranking_id", referencedColumnName = "id", nullable = false)
     private Ranking ranking;
     
-    public User(String name, String userName, String registrationDate, String password, Ranking ranking) {
+    public User(String name, String userName, Date registrationDate, String password, Ranking ranking) {
 		this.name = name;
 		this.userName = userName;
 		this.registrationDate = registrationDate;
@@ -67,11 +68,11 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-	public String getRegistrationDate() {
+	public Date getRegistrationDate() {
 		return registrationDate;
 	}
 
-	public void setRegistrationDate(String registrationDate) {
+	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
 	}
 

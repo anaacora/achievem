@@ -1,6 +1,7 @@
 package achievem.backend.springboot.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,7 @@ public class Award implements Serializable {
 	private Long id;
 
 	@NotNull
-	private String collectionDate;
+	private Date collectionDate;
 	
 	@NotNull
 	private String category;
@@ -30,7 +31,7 @@ public class Award implements Serializable {
 	@JoinColumn(name = "ranking_id", referencedColumnName = "id", nullable = false)
 	private Ranking ranking;
 	
-	public Award(String collectionDate, String category, int points, Ranking ranking) {
+	public Award(Date collectionDate, String category, int points, Ranking ranking) {
 		this.collectionDate = collectionDate;
 		this.category = category;
 		this.points = points;
@@ -49,11 +50,11 @@ public class Award implements Serializable {
 		this.id = id;
 	}
 
-	public String getCollectionDate() {
+	public Date getCollectionDate() {
 		return this.collectionDate;
 	}
 
-	public void setCollectionDate(String collectionDate) {
+	public void setCollectionDate(Date collectionDate) {
 		this.collectionDate = collectionDate;
 	}
 
