@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,9 +16,10 @@ import achievem.backend.springboot.entities.Goal;
 import achievem.backend.springboot.entities.User;
 import achievem.backend.springboot.repositories.UserRepository;
 
+@CrossOrigin(maxAge = 3600)
 @RestController
 public class UserRestController {
-    
+	
     @Autowired
     private UserRepository repository;
     
@@ -45,6 +47,7 @@ public class UserRestController {
 	    }        
     }
     
+    @CrossOrigin("http://localhost:8081/")
     @RequestMapping(value = "/api/users/{id}", method = RequestMethod.GET)
     public ResponseEntity<User> getUserById(@PathVariable Long id){
     	
