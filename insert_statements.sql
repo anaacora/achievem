@@ -45,11 +45,10 @@ insert into friendship_challenge (friendship_id, challenge_id) values (3, 3);
 insert into friendship_challenge (friendship_id, challenge_id) values (4, 4);
 insert into friendship_challenge (friendship_id, challenge_id) values (5, 5);
 
-
-insert into goal (id, category, end_date, name, progress, start_Date, target, unit, award_id, user_id) values (1, 'Health and Food', '2020-12-01 12:00:00', 'Drink Water', '50', '2020-05-10 12:00:00', 2, 'l', 1, 1);
-insert into goal (id, category, end_date, name, progress, start_Date, target, unit, award_id, user_id) values (2, 'Lifestyle', '2020-12-01 12:00:00', 'No Phone', '50', '2020-05-01 12:00:00', 5, 'hours', 6, 1);
-insert into goal (id, category, end_date, name, progress, start_Date, target, unit, award_id, user_id) values (3, 'Education', '2020-12-01 12:00:00', 'Study', '50', '2020-06-01 12:00:00', 2, 'hours', 5, 1);
-insert into goal (id, category, end_date, name, progress, start_Date, target, unit, award_id, user_id) values (4, 'Sports', '2020-12-01 12:00:00', 'Go to the gym', '50', '2020-06-01 12:00:00', 1, 'time', 4, 1);
-insert into goal (id, category, end_date, name, progress, start_Date, target, unit, award_id, user_id) values (5, 'Lifestyle', '2020-12-01 12:00:00', 'No Phone', '50', '2020-05-20 12:00:00', 2, 'hours', 7, 2);
-insert into goal (id, category, end_date, name, progress, start_Date, target, unit, award_id, user_id) values (6, 'Health and Food', '2020-12-01 12:00:00', 'Eat fruits', '50', '2020-05-15 12:00:00', 1, 'piece', 2, 2);
-insert into goal (id, category, end_date, name, progress, start_Date, target, unit, award_id, user_id) values (7, 'Health and Food', '2020-12-01 12:00:00', 'Drink Water', '50', '2020-06-01 12:00:00', 3, 'l', 3, 2);
+insert into goal (id, category, end_date, name, progress, start_Date, target, unit, repetition, award_id, user_id) values (1, 'Health and Food', '2020-12-01 12:00:00', 'Drink Water', '50', '2020-05-10 12:00:00', 2, 'l', 'Daily', 1, 1);
+insert into goal (id, category, end_date, name, progress, start_Date, target, unit, repetition, award_id, user_id) values (2, 'Lifestyle', '2020-12-01 12:00:00', 'No Phone', '50', '2020-05-01 12:00:00', 5, 'hours', 'Twice a Week', 6, 1);
+insert into goal (id, category, end_date, name, progress, start_Date, target, unit, repetition, award_id, user_id) values (3, 'Education', '2020-12-01 12:00:00', 'Study', '50', '2020-06-01 12:00:00', 2, 'hours', 'Weekly', 5, 1);
+insert into goal (id, category, end_date, name, progress, start_Date, target, unit, repetition, award_id, user_id) values (4, 'Sports', '2020-12-01 12:00:00', 'Go to the gym', '50', '2020-06-01 12:00:00', 1, 'time', 'Monthly', 4, 1);
+insert into goal (id, category, end_date, name, progress, start_Date, target, unit, repetition, award_id, user_id) values (5, 'Lifestyle', '2020-12-01 12:00:00', 'No Phone', '50', '2020-05-20 12:00:00', 2, 'hours', 'Daily', 7, 2);
+insert into goal (id, category, end_date, name, progress, start_Date, target, unit, repetition, award_id, user_id) values (6, 'Health and Food', '2020-12-01 12:00:00', 'Eat fruits', '50', '2020-05-15 12:00:00', 1, 'piece', 'Weekly', 2, 2);
+insert into goal (id, category, end_date, name, progress, start_Date, target, unit, repetition, award_id, user_id) values (7, 'Health and Food', '2020-12-01 12:00:00', 'Drink Water', '50', '2020-06-01 12:00:00', 3, 'liter', 'Daily', 3, 2);

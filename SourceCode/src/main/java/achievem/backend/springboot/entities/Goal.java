@@ -34,6 +34,9 @@ public class Goal implements Serializable {
 	private String unit;
 
 	@NotNull
+	private String repetition;
+
+	@NotNull
 	private Date startDate;
 	
 	private Date endDate;
@@ -46,12 +49,13 @@ public class Goal implements Serializable {
 	@JoinColumn(name = "award_id", referencedColumnName = "id", nullable = false)
 	private Award award;
 	
-	public Goal(String name, String category, String target, String progress, String unit, Date startDate, Date endDate, User user, Award award) {
+	public Goal(String name, String category, String target, String progress, String unit, String repetition, Date startDate, Date endDate, User user, Award award) {
 		this.name = name;
 		this.category = category;
 		this.target = target;
 		this.progress = progress;
-		this.unit = unit ;
+		this.unit = unit;
+		this.repetition = repetition;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.user = user;
@@ -106,6 +110,14 @@ public class Goal implements Serializable {
 
 	public void setUnit(String unit) {
 		this.unit = unit;
+	}
+	
+	public String getRepetition() {
+		return this.repetition;
+	}
+
+	public void setRepetition(String repetition) {
+		this.repetition = repetition;
 	}
 
 	public Date getStartDate() {

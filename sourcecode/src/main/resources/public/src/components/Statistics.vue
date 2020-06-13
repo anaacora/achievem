@@ -18,13 +18,11 @@
     </div>
     <div class="row mb-1">
       <div class="col d-flex justify-content-center muted">
-        <div>
-          <i @click="updateChart()" class="fas fa-chevron-left hovering mr-3"></i>
-          <p class="no-space hovering">
-            <span>Drink 2l water</span>
-          </p>
-          <i @click="updateChart()" class="fas fa-chevron-right hovering ml-3"></i>
-        </div>
+        <i @click="updateChart()" class="fas fa-chevron-left hovering mr-3"></i>
+        <p class="no-space hovering">
+          <span>Drink 2l water</span>
+        </p>
+        <i @click="updateChart()" class="fas fa-chevron-right hovering ml-3"></i>
       </div>
     </div>
     <div class="row">
@@ -43,7 +41,7 @@
         <canvas id="statisticChart" class="statistic"></canvas>-->
 
         <bar-chart :chart-data="datacollection"></bar-chart>
-        <button @click="fillData()">Randomize</button>
+        <!--<button @click="fillData()">Randomize</button>-->
       </div>
     </div>
   </div>
@@ -53,6 +51,7 @@
 import BarChart from "./BarChart.js";
 
 export default {
+  props: ["goals"],
   components: {
     BarChart
   },
@@ -62,6 +61,7 @@ export default {
     };
   },
   mounted() {
+    console.log(this.goals);
     this.fillData();
   },
   methods: {
@@ -69,11 +69,6 @@ export default {
       this.datacollection = {
         labels: [this.getRandomInt(), this.getRandomInt()],
         datasets: [
-          {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [this.getRandomInt(), this.getRandomInt()]
-          },
           {
             label: "Data One",
             backgroundColor: "#f87979",
@@ -94,8 +89,6 @@ export default {
       var categories = ["blue", "purple", "orange", "green"];
       var category = categories[1];
 
-
-
       //COLORS USED: always 50 % & 70 %
 
       if (category === "blue") {
@@ -103,18 +96,21 @@ export default {
         this.datacollection.datasets[0].borderColor = "rgba(46, 136, 209, 1)";
         this.datacollection.datasets[0].backgroundColor =
           "rgba(130, 183, 227, 1)";
+        this.datacollection = {
+          datasets: [
+            {
+              backgroundColor: "rgba(206, 151, 181, 1)"
+            }
+          ]
+        };
       } else if (category === "purple") {
-
-this.datacollection = {
-        datasets: [
-          {
-            backgroundColor: "rgba(206, 151, 181, 1)",
-          },
-          {
-            backgroundColor: "rgba(206, 151, 181, 1)",
-          }
-        ]
-      };
+        this.datacollection = {
+          datasets: [
+            {
+              backgroundColor: "rgba(206, 151, 181, 1)"
+            }
+          ]
+        };
 
         //IF Purple - Education:
         //this.datacollection.datasets[0].borderColor = "rgba(173, 82, 132, 1)";

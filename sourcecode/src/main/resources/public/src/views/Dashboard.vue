@@ -30,7 +30,7 @@
         </div>
       </div>
     </div>
-    <statistics></statistics>
+    <statistics v-bind:goals="goals">></statistics>
 
     <!-- Toasts -->
     <div aria-live="polite" aria-atomic="true">
