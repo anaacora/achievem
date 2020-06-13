@@ -158,17 +158,30 @@ export default {
       id: 1,
       user:null,
       userGoals: null,
+      chartData: null,
     }
   },
 
   mounted() {
-    getUserId(this.id);
+    this.user = getUserId(this.id);
     this.userGoals = this.getGoalsFromUser(this.user);
+    this.chartData = this.getChartDatabyGoalId(this.userGoals[0].id);
   },
   
   methods: {
     getGoalsFromUser(userId){
       axios.get('/api/goals/userId='+userId)
+        .then((response)=>{
+          console.log(response.data);
+          return response.data;
+        })
+        .catch((error)=>{
+          console.log(error);
+        })
+    },
+
+    getChartDatabyGoalId(goalId){
+      axios.get('/api/xyz='+goalId)
         .then((response)=>{
           console.log(response.data);
           return response.data;
