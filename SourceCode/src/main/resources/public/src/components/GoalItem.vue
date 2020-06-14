@@ -3,18 +3,18 @@
     <li
     class="list-group-item list-group-item-action list-group-item-light"
     data-toggle="modal"
-    v-bind:data-target="'#'+[goal.goalModal]"
+    v-bind:data-target="'#'+[goal.modal]"
     >
       <div class="d-flex justify-content-between">
         <div class="col-4 p-0">
-        <span>{{goal.goalTitle}}</span>
+        <span>{{goal.title}}</span>
         </div>
         <div class="col-4 text-center p-0">
         
         <span 
         v-bind:class="[textCustom50]"
         >
-          {{goal.goalCategory}}
+          {{goal.category}}
         </span>
 
         </div>
@@ -24,7 +24,7 @@
           class="badge badge-pill" 
           v-bind:class="[backgroundCustom50]"
           >
-            {{goal.goalCurrent}}/{{goal.goalTarget}} {{goal.goalUnit}}
+            {{goal.current}}/{{goal.target}} {{goal.unit}}
           </span>
 
         </div>
@@ -66,12 +66,12 @@ export default {
   props: ['goal'],
   data(){
     return{
-      textCustom50: "txt-custom-"+this.goal.goalColor+"-50",
-      backgroundCustom50: "bg-custom-"+this.goal.goalColor+"-50",
-      backgroundCustom70: "bg-custom-"+this.goal.goalColor+"-70",
+      textCustom50: "txt-custom-"+this.goal.color+"-50",
+      backgroundCustom50: "bg-custom-"+this.goal.color+"-50",
+      backgroundCustom70: "bg-custom-"+this.goal.color+"-70",
 
-      valNow: this.goal.goalCurrent/this.goal.goalTarget*100,
-      valOpen: 100-this.goal.goalCurrent/this.goal.goalTarget*100,
+      valNow: this.goal.current/this.goal.target*100,
+      valOpen: 100-this.goal.current/this.goal.target*100,
     }
   },
 

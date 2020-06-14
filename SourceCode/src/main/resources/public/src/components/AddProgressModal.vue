@@ -2,10 +2,10 @@
   <div>
     <div
         class="modal fade"
-        v-bind:id="[goal.goalModal]"
+        v-bind:id="[goal.modal]"
         tabindex="-1"
         role="dialog"
-        v-bind:aria-labelledby="[goal.goalModal]"
+        v-bind:aria-labelledby="[goal.modal]"
         aria-hidden="true"
       >
         <div class="modal-dialog" role="document">
@@ -14,8 +14,8 @@
               <h5
                 class="modal-title"
                 v-bind:class="[textCustom50]"
-                v-bind:id="[goal.goalModal]"
-              > {{goal.goalCategory}}: {{goal.goalTitle}}</h5>
+                v-bind:id="[goal.modal]"
+              > {{goal.category}}: {{goal.title}}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -62,7 +62,7 @@
                           class="input-group-text text-white pl-4"
                           v-bind:class=" [backgroundCustom70]"
                           id="counterLabelAppend"
-                        >{{goal.goalUnit}}</span>
+                        >{{goal.unit}}</span>
                       </div>
                     </div>
 
@@ -96,10 +96,9 @@ export default {
   props: ['goal'],
   data(){
     return{
-      textCustom50: "txt-custom-"+this.goal.goalColor+"-50",
-      backgroundCustom50: "bg-custom-"+this.goal.goalColor+"-50",
-      backgroundCustom70: "bg-custom-"+this.goal.goalColor+"-70",
-
+      textCustom50: "txt-custom-"+this.goal.color+"-50",
+      backgroundCustom50: "bg-custom-"+this.goal.color+"-50",
+      backgroundCustom70: "bg-custom-"+this.goal.color+"-70",
       valCounter: 1.0,
     }
   },
@@ -110,7 +109,7 @@ export default {
   
   methods: {
     dostartup(){
-      alert("started" + this.goal.goalColor);
+      alert("started" + this.goal.color);
 
     },
     submitProgress(){

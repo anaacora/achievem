@@ -1,37 +1,26 @@
 <template>
   <div class="statistics">
-    <div class="row mb-3">
+    <div class="row">
       <div class="col">
         <h3>Statistics</h3>
       </div>
-      <div class="col muted d-flex justify-content-end pt-2">
+      <div class="col d-flex muted justify-content-end">
         <div>
-          <i class="fas fa-chevron-left hovering mr-1"></i>
-          <p class="no-space hovering">
-            <span>Weekly</span>
-          </p>
+          <i class="fas fa-chevron-left hovering"></i>
+          <span class="no-space hovering ml-2 mr-1">Weekly</span>
           <i class="fas fa-chevron-right hovering ml-1"></i>
-          <i class="fas fa-calendar hovering ml-1"></i>
-          <i class="fas fa-chevron-down hovering ml-4"></i>
+          <i class="fas fa-calendar hovering ml-2"></i>
+          <i class="fas fa-chevron-down hovering ml-3"></i>
         </div>
       </div>
     </div>
     <div class="row mb-1">
       <div class="col d-flex justify-content-center muted">
-        <i @click="updateChart()" class="fas fa-chevron-left hovering mr-3"></i>
+        <i @click="previousChart()" class="fas fa-chevron-left hovering mr-3"></i>
         <p class="no-space hovering">
-          <span>Drink 2l water</span>
+          <span>{{goals[currentId].title}}</span>
         </p>
-        <i @click="updateChart()" class="fas fa-chevron-right hovering ml-3"></i>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col d-flex justify-content-center">
-        <div>
-          <p class="no-space hovering muted">
-            <span>Achieved goals in percent</span>
-          </p>
-        </div>
+        <i @click="nextChart()" class="fas fa-chevron-right hovering ml-3"></i>
       </div>
     </div>
 
@@ -40,7 +29,7 @@
         <!--<img src="./img/statistic.png" alt="Statistics" class="statistic m-2 mt-4">
         <canvas id="statisticChart" class="statistic"></canvas>-->
 
-        <bar-chart :chart-data="datacollection"></bar-chart>
+        <bar-chart :chart-data="chartdata" :options="options" />
         <!--<button @click="fillData()">Randomize</button>-->
       </div>
     </div>
@@ -55,80 +44,75 @@ export default {
   components: {
     BarChart
   },
-  data() {
-    return {
-      datacollection: null
-    };
-  },
+  data: () => ({
+    chartdata: {},
+    options: {
+      title: {
+        display: true,
+        text: "Achieved goals in percent"
+      },
+      legend: {
+        display: false
+      },
+      scales: {
+            yAxes: [{
+            ticks: {
+                max: 100,
+                min: 0,
+                stepSize: 10
+            }
+        }]
+        }
+    },
+    currentId: 0
+  }),
   mounted() {
-    console.log(this.goals);
-    this.fillData();
+    this.updateChart();
   },
   methods: {
-    fillData() {
-      this.datacollection = {
-        labels: [this.getRandomInt(), this.getRandomInt()],
+    updateChart() {
+      //COLORS USED: always 50 % & 70 %
+      var bgc = "";
+      console.log(this.goals[this.currentId].color);
+      if (this.goals[this.currentId].color === "blue") {
+        //IF Blue - Health & Food:
+        bgc = "rgba(130, 183, 227, 1)";
+      } else if (this.goals[this.currentId].color === "purple") {
+        //IF Purple - Education:
+        bgc = "rgba(206, 151, 181, 1)";
+      } else if (this.goals[this.currentId].color === "orange") {
+        //IF Orange - Sports:
+
+        bgc = "rgba(227, 169, 130, 1)";
+      } else if (this.goals[this.currentId].color === "green") {
+        //IF Green - Lifestyle:
+        bgc = "rgba(145, 212, 172, 1)";
+      }
+      this.chartdata = {
+        labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
         datasets: [
           {
-            label: "Data One",
-            backgroundColor: "#f87979",
-            data: [this.getRandomInt(), this.getRandomInt()]
+            backgroundColor: bgc,
+            data: this.goals[this.currentId].progressData
           }
         ]
       };
     },
-    updateChart() {
-      //get new data as param probably
-
-      // add label
-      //statisticChart.data.labels.push(name);
-      // add nr of episodes
-      //statisticChart.data.datasets[0].data.push(nrOfEpisodes);
-
-      //add colorcodes as attribute to categories in DB -> easier
-      var categories = ["blue", "purple", "orange", "green"];
-      var category = categories[1];
-
-      //COLORS USED: always 50 % & 70 %
-
-      if (category === "blue") {
-        //IF Blue - Health & Food:
-        this.datacollection.datasets[0].borderColor = "rgba(46, 136, 209, 1)";
-        this.datacollection.datasets[0].backgroundColor =
-          "rgba(130, 183, 227, 1)";
-        this.datacollection = {
-          datasets: [
-            {
-              backgroundColor: "rgba(206, 151, 181, 1)"
-            }
-          ]
-        };
-      } else if (category === "purple") {
-        this.datacollection = {
-          datasets: [
-            {
-              backgroundColor: "rgba(206, 151, 181, 1)"
-            }
-          ]
-        };
-
-        //IF Purple - Education:
-        //this.datacollection.datasets[0].borderColor = "rgba(173, 82, 132, 1)";
-        //this.datacollection.datasets[0].backgroundColor ="rgba(206, 151, 181, 1)";
-      } else if (category === "orange") {
-        //IF Orange - Sports:
-        this.datacollection.datasets[0].borderColor = "rgba(209, 112, 46, 1)";
-        this.datacollection.datasets[0].backgroundColor =
-          "rgba(227, 169, 130, 1)";
-      } else if (category === "green") {
-        //IF Green - Lifestyle:
-        this.datacollection.datasets[0].borderColor = "rgba(71, 184, 116, 1)";
-        this.datacollection.datasets[0].backgroundColor =
-          "rgba(145, 212, 172, 1)";
+    previousChart() {
+      if (this.currentId === 0) {
+        this.currentId = this.goals.length - 1;
+      } else {
+        this.currentId--;
       }
+      this.updateChart();
     },
-    getRandomInt() {
-      return Math.floor(Math.random() * (50 - 5 + 1)) + 5;
+    nextChart() {
+      if (this.currentId >= this.goals.length - 1) {
+        this.currentId = 0;
+      } else {
+        this.currentId++;
+      }
+      this.updateChart();
     }
   }
 };

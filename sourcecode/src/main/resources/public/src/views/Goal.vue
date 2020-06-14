@@ -285,14 +285,12 @@ export default {
     };
   },
   mounted() {
-    console.log(this.goal);
+    //console.log(this.goal);
   },
   methods: {
     addGoal() {
       this.validateForm();
       if (this.isValid) {
-        console.log("form valid");
-
         //set name if empty
         if (this.goal.name === "") {
           this.goal.name =
@@ -308,22 +306,18 @@ export default {
         const startDate = this.goal.startDate.split(".");
         const formatedStartDate =
           startDate[2] + "-" + startDate[1] + "-" + startDate[1];
-        console.log("Start Date : " + formatedStartDate);
         this.goal.startDate = formatedStartDate;
 
         //format end date to sql date format
         const endDate = this.goal.endDate.split(".");
         const formatedEndDate =
           endDate[2] + "-" + endDate[1] + "-" + endDate[1];
-        console.log("End Date : " + formatedEndDate);
         this.goal.endDate = formatedEndDate;
 
         var user = getUserId(1);
         this.goal.user = user;
         var goalJson = JSON.stringify(this.goal);
         alert(goalJson);
-      } else {
-        console.log("form not valid");
       }
     },
     validateForm() {
@@ -355,7 +349,6 @@ export default {
         this.isValid = false;
       }
       const dateRegex = /[0-9]{1,2}\.[0-9]{1,2}\.[2]{1}[0-9]{3}/;
-      console.log();
       if (this.goal.startDate === "") {
         this.validation.startDate = false;
         this.isValid = false;
@@ -372,7 +365,6 @@ export default {
         this.validation.formatEndDate = false;
         this.isValid = false;
       }
-      console.log(this.validation);
     }
   }
 };

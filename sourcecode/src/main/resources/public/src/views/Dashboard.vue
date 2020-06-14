@@ -7,30 +7,26 @@
         </div>
         <div class="col muted d-flex justify-content-end pt-2">
           <div>
-            <i class="fas fa-chevron-left hovering mr-1"></i>
-            <p class="no-space hovering">
-              <span>07.03</span>
-            </p>
+            <i class="fas fa-chevron-left hovering"></i>
+            <span class="no-space hovering ml-2 mr-1">07.03</span>
             <i class="fas fa-chevron-right hovering ml-1"></i>
-            <i class="fas fa-calendar hovering ml-1"></i>
-            <i class="fas fa-chevron-down hovering ml-4"></i>
+            <i class="fas fa-calendar hovering ml-2"></i>
+            <i class="fas fa-chevron-down hovering ml-3"></i>
           </div>
         </div>
       </div>
-      
+
       <div class="row mb-3">
         <div class="col">
           <ul class="list-group">
-
             <div v-for="goal in goals" v-bind:key="goal.id">
               <goal-item v-bind:goal="goal"></goal-item>
             </div>
-
           </ul>
         </div>
       </div>
+      <statistics v-bind:goals="goals">></statistics>
     </div>
-    <statistics v-bind:goals="goals">></statistics>
 
     <!-- Toasts -->
     <div aria-live="polite" aria-atomic="true">
@@ -130,53 +126,97 @@
 </style>
 
 <script>
-
 // @ is an alias to /src
 import GoalItem from "@/components/GoalItem.vue";
 import Statistics from "@/components/Statistics.vue";
 
-import { getUserId } from '../assets/auth.js';
+import { getUserId } from "../assets/auth.js";
 
-import axios from 'axios'
+import axios from "axios";
 
 export default {
   name: "Dashboard",
   components: {
     GoalItem,
-    Statistics,
+    Statistics
   },
   data() {
     return {
       goals: [
-        {id: 1, goalModal:"WaterModal", goalCategory: "Health & Food", goalTitle: "Drink 2l water", goalUnit: "l water", goalColor: "blue", goalCurrent:0.5, goalTarget: 2, inputSteps:0.5 },
-        {id: 2, goalModal:"FruitModal", goalCategory: "Health & Food", goalTitle: "Eat 3 fruits", goalUnit: "Fruits", goalColor: "blue", goalCurrent:0, goalTarget: 3, inputSteps:1 },
-        {id: 3, goalModal:"PagesModal", goalCategory: "Education", goalTitle: "Read 20 book pages", goalUnit: "Pages", goalColor: "purple", goalCurrent:15, goalTarget: 20, inputSteps:1 },
-        {id: 4, goalModal:"SportModal", goalCategory: "Sports", goalTitle: "Go to the gym", goalUnit: "DONE", goalColor: "orange", goalCurrent:1, goalTarget: 1, inputSteps:1 },
+        {
+          id: 1,
+          modal: "WaterModal",
+          category: "Health & Food",
+          title: "Drink 2l water",
+          unit: "l water",
+          color: "blue",
+          current: 0.5,
+          target: 2,
+          inputSteps: 0.5,
+          progressData: [20, 50, 50, 80, 70, 100, 33]
+        },
+        {
+          id: 2,
+          modal: "FruitModal",
+          category: "Health & Food",
+          title: "Eat 3 fruits",
+          unit: "Fruits",
+          color: "blue",
+          current: 0,
+          target: 3,
+          inputSteps: 1,
+          progressData: [75, 50, 20, 10, 50, 80, 0]
+        },
+        {
+          id: 3,
+          modal: "PagesModal",
+          category: "Education",
+          title: "Read 20 book pages",
+          unit: "Pages",
+          color: "purple",
+          current: 15,
+          target: 20,
+          inputSteps: 1,
+          progressData: [20, 80, 50, 100, 70, 100, 60]
+        },
+        {
+          id: 4,
+          modal: "SportModal",
+          category: "Sports",
+          title: "Go to the gym",
+          unit: "DONE",
+          color: "orange",
+          current: 1,
+          target: 1,
+          inputSteps: 1,
+          progressData: [0, 100, 100, 0, 100, 100, 100]
+        }
       ],
 
       // Here comes good data
       id: 1,
-      user:null,
-      userGoals: null,
-    }
+      user: null,
+      userGoals: null
+    };
   },
 
   mounted() {
     getUserId(this.id);
     this.userGoals = this.getGoalsFromUser(this.user);
   },
-  
+
   methods: {
-    getGoalsFromUser(userId){
-      axios.get('/api/goals/userId='+userId)
-        .then((response)=>{
+    getGoalsFromUser(userId) {
+      axios
+        .get("/api/goals/userId=" + userId)
+        .then(response => {
           console.log(response.data);
           return response.data;
         })
-        .catch((error)=>{
+        .catch(error => {
           console.log(error);
-        })
+        });
     }
-  },
+  }
 };
 </script>
