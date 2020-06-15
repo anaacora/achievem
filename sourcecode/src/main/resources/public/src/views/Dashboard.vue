@@ -20,12 +20,12 @@
         <div class="col">
           <ul class="list-group">
             <div v-for="goal in goals" v-bind:key="goal.id">
-              <goal-item v-bind:goal="goal"></goal-item>
+              <goal-item v-on:childToParent="onChildClick" v-bind:goal="goal"></goal-item>
             </div>
           </ul>
         </div>
       </div>
-      <statistics v-bind:goals="goals">></statistics>
+      <statistics v-bind:goals="goals" ref="stat"></statistics>
     </div>
 
     <!-- Toasts -->
@@ -216,6 +216,14 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+    onChildClick(updatedGoal) {
+      this.goals.forEach(g => {
+        if (g.id === updatedGoal.id) {
+          g.progressData = updatedGoal.progressData;
+        }
+      });
+      this.$refs.stat.updateChart();
     }
   }
 };

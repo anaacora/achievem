@@ -16,21 +16,15 @@
     </div>
     <div class="row mb-1">
       <div class="col d-flex justify-content-center muted">
-        <i @click="previousChart()" class="fas fa-chevron-left hovering mr-3"></i>
-        <p class="no-space hovering">
-          <span>{{goals[currentId].title}}</span>
-        </p>
-        <i @click="nextChart()" class="fas fa-chevron-right hovering ml-3"></i>
+        <i @click="previousChart()" class="fas fa-chevron-left hovering mr-3 mt-1"></i>
+        <span class="no-space hovering">{{goals[currentId].title}}</span>
+        <i @click="nextChart()" class="fas fa-chevron-right hovering ml-3 mt-1"></i>
       </div>
     </div>
 
     <div class="row">
       <div class="col d-flex justify-content-center">
-        <!--<img src="./img/statistic.png" alt="Statistics" class="statistic m-2 mt-4">
-        <canvas id="statisticChart" class="statistic"></canvas>-->
-
         <bar-chart :chart-data="chartdata" :options="options" />
-        <!--<button @click="fillData()">Randomize</button>-->
       </div>
     </div>
   </div>
@@ -55,14 +49,16 @@ export default {
         display: false
       },
       scales: {
-            yAxes: [{
+        yAxes: [
+          {
             ticks: {
-                max: 100,
-                min: 0,
-                stepSize: 10
+              max: 100,
+              min: 0,
+              stepSize: 10
             }
-        }]
-        }
+          }
+        ]
+      }
     },
     currentId: 0
   }),
@@ -73,7 +69,6 @@ export default {
     updateChart() {
       //COLORS USED: always 50 % & 70 %
       var bgc = "";
-      console.log(this.goals[this.currentId].color);
       if (this.goals[this.currentId].color === "blue") {
         //IF Blue - Health & Food:
         bgc = "rgba(130, 183, 227, 1)";
