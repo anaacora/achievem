@@ -1,8 +1,7 @@
 import axios from 'axios';
 
 export function getUserId(id) {
-
-  axios.get('/api/users/'+id)
+  axios.get('http://localhost:8081/api/users/' + id)
     .then((response)=>{
       console.log(response.data);
       return response.data;
@@ -10,7 +9,5 @@ export function getUserId(id) {
     .catch((error)=>{
       console.log(error);
     })
-
-  // alert("hi Ana+Christian" + id)
 }
 
