@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import BarChart from "./BarChart.js";
+import BarChart from "../assets/barchart.js";
 
 export default {
   props: ["goals"],
@@ -77,7 +77,6 @@ export default {
         bgc = "rgba(206, 151, 181, 1)";
       } else if (this.goals[this.currentId].color === "orange") {
         //IF Orange - Sports:
-
         bgc = "rgba(227, 169, 130, 1)";
       } else if (this.goals[this.currentId].color === "green") {
         //IF Green - Lifestyle:

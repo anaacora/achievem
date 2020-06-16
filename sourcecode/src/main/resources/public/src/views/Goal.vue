@@ -261,15 +261,16 @@ export default {
     return {
       goal: {
         name: "",
+        modal: "",
         category: "",
         target: "",
         progress: "0",
         unit: "",
+        color: "to set",
         startDate: "",
         endDate: "",
         repetition: "",
-        user: { id: 0 },
-        award: { id: 0 }
+        progressData: [0, 0, 0, 0, 0, 0, 0]
       },
       validation: {
         category: true,
@@ -301,7 +302,6 @@ export default {
             " " +
             this.goal.repetition;
         }
-
         //format start date to sql date format
         const startDate = this.goal.startDate.split(".");
         const formatedStartDate =

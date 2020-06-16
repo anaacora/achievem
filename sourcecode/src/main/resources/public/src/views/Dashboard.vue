@@ -184,7 +184,7 @@ export default {
           modal: "SportModal",
           category: "Sports",
           title: "Go to the gym",
-          unit: "DONE",
+          unit: "time",
           color: "orange",
           current: 1,
           target: 1,
