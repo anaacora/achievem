@@ -253,7 +253,8 @@
   </div>
 </template>
 <script>
-import { getUserId } from "../assets/auth.js";
+import { url} from "../assets/global.js";
+import axios from "axios";
 
 export default {
   name: "Goal",
@@ -266,7 +267,7 @@ export default {
         target: "",
         progress: "0",
         unit: "",
-        color: "to set",
+        // color: "",
         startDate: "",
         endDate: "",
         repetition: "",
@@ -314,12 +315,23 @@ export default {
           endDate[2] + "-" + endDate[1] + "-" + endDate[1];
         this.goal.endDate = formatedEndDate;
 
-        var user = getUserId(1);
-        this.goal.user = user;
+        //set modal
+        this.setModalName();
+        // var user = getUserById(1);
+        // this.goal.user = user;
         var goalJson = JSON.stringify(this.goal);
         alert(goalJson);
+
+        this.postGoal();
       }
     },
+    
+    setModalName(){
+      let goalName = this.goal.name;
+      goalName = goalName.replace(/ /g, '');
+      this.goal.modal= goalName+ "Modal";
+    },
+
     validateForm() {
       //set valid
       this.isValid = true;
@@ -365,7 +377,19 @@ export default {
         this.validation.formatEndDate = false;
         this.isValid = false;
       }
-    }
+    },
+
+    postGoal(){
+      axios.post(url + '/goals',this.goal)
+        .then((response)=>{
+          // handle success
+          console.log(response);
+        })
+        .catch((error)=>{
+          // handle error
+          console.log(error);
+        })
+    },
   }
 };
 /*

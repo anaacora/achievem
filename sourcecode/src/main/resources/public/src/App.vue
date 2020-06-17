@@ -31,7 +31,7 @@
             <router-link class="nav-link" to="/profile">
               <img
                 class="nav_profile_icon rounded-circle"
-                src="./img/profile_anaa.png"
+                v-bind:src="require('./img/profile_'+[user.user_name]+'.png')"
                 alt="Profile"
               />
             </router-link>
@@ -183,4 +183,47 @@ nav {
 .txt-custom-green-70 {
   color: #91d4ac;
 }
+
+.txt-custom-grey-50 {
+  background-color: #808080;
+}
+
+.txt-custom-grey-60 {
+  background-color: #999999;
+}
+
+.txt-custom-grey-70 {
+  background-color: #b3b3b3;
+}
 </style>
+
+<script>
+import axios from "axios";
+import { url, id} from "./assets/global.js";
+
+export default {
+  data() {
+    return {
+        user:{},
+    }
+  },
+  mounted () {
+    this.getUserById(); 
+  },
+
+  methods: {
+    getUserById(){
+      axios.get(url + '/users?id='+id)
+        .then((response)=>{
+          // handle success
+          console.log(response.data);
+          this.user = response.data;
+        })
+        .catch((error)=>{
+          // handle error
+          console.log(error);
+        })
+    },
+  }
+}
+</script>

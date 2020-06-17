@@ -7,22 +7,22 @@
     >
       <div class="d-flex justify-content-between">
         <div class="col-4 p-0">
-          <span>{{goal.title}}</span>
+          <span>{{goal.name}}</span>
         </div>
         <div class="col-4 text-center p-0">
-          <span v-bind:class="[textCustom50]">{{goal.category}}</span>
+          <span v-bind:class="[goal.text]">{{goal.category}}</span>
         </div>
         <div class="col-4 text-right p-0">
           <span
             class="badge badge-pill"
-            v-bind:class="[backgroundCustom50]"
+            v-bind:class="[goal.bg50]"
           >{{goal.current}}/{{goal.target}} {{goal.unit}}</span>
         </div>
       </div>
       <div class="progress">
         <div
           class="progress-bar"
-          v-bind:class=" [backgroundCustom50]"
+          v-bind:class=" [goal.bg50]"
           role="progressbar"
           v-bind:style="'width: '+[valNow]+'%'"
           v-bind:aria-valuenow="[valNow]"
@@ -31,7 +31,7 @@
         />
         <div
           class="progress-bar"
-          v-bind:class=" [backgroundCustom70]"
+          v-bind:class=" [goal.bg70]"
           role="progressbar"
           v-bind:style="'width: '+[valOpen]+'%'"
           v-bind:aria-valuenow="[valOpen]"
@@ -48,6 +48,7 @@
 <script>
 // @ is an alias to /src
 import EditProgress from "@/components/EditProgressModal.vue";
+import {getColorByCategory} from "../assets/global.js";
 
 export default {
   components: {
@@ -56,14 +57,11 @@ export default {
   props: ["goal"],
   data() {
     return {
-      textCustom50: "txt-custom-" + this.goal.color + "-50",
-      backgroundCustom50: "bg-custom-" + this.goal.color + "-50",
-      backgroundCustom70: "bg-custom-" + this.goal.color + "-70",
       valNow: 0,
-      valOpen: 0
+      valOpen: 0,
     };
   },
-  mounted() {   
+  beforeMount() {   
     this.initProgressbar(); 
   },
   methods: {
@@ -77,7 +75,13 @@ export default {
     },
     initProgressbar(){
       this.valNow = (this.goal.current / this.goal.target) * 100;
-      this.valOpen = 100 - (this.goal.current / this.goal.target) * 100;    
+      this.valOpen = 100 - (this.goal.current / this.goal.target) * 100;   
+      
+      // set styling
+      this.goal.color = getColorByCategory(this.goal.category);
+      this.goal.text = "txt-custom-" + this.goal.color + "-50";
+      this.goal.bg50 = "bg-custom-" + this.goal.color + "-50";
+      this.goal.bg70 = "bg-custom-" + this.goal.color + "-70";
     }
   }
 };

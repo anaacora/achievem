@@ -14,27 +14,41 @@
                             <ul class="list-group">
                                 <p class="mt-3">What goal do you want to challenge?</p>
 
-                                <li class="list-group-item list-group-item-action list-group-item-light" v-for="goal in goals" :key="goal.id">
+                                <li class="list-group-item list-group-item-action" 
+                                    v-for="(goal, index) in goals" 
+                                    v-bind:class="{ 'list-group-item-secondary': activeGoalIndex === index }"  
+                                    v-bind:key="goal.id" @click="setActiveGoal(goal, index)"
+                                    >
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span>{{goal.name}}</span>
+                                        <span v-bind:class="[goal.text]">{{goal.category}}</span>
+                                    </div>
+                                </li>
+                                <!-- <li class="list-group-item list-group-item-action list-group-item-light" v-for="goal in goals" :key="goal.id" @click="goalStatus(goal.id)">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <span>{{goal.goalTitle}}</span>
                                         <span v-bind:class="'txt-custom-'+[goal.goalColor]+'-50'">{{goal.goalCategory}}</span>
                                     </div>
-                                </li>
+                                </li> -->
 
                                 <p class="mt-3">Who do you want to challenge?</p>
 
-                                <li class="list-group-item list-group-item-action list-group-item-light" v-for="friend in friends" :key="friend.id">
+                                <li class="list-group-item list-group-item-action" 
+                                    v-for="(friend, index) in friends"
+                                    v-bind:class="{ 'list-group-item-secondary': activeFriendIndex === index }"  
+                                    v-bind:key="friend.id" @click="setActiveFriend(friend, index)"
+                                >
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="col p-0 text-left">
                                             <img 
-                                    v-bind:src="[friend.profile]" 
+                                    v-bind:src="require('../img/profile_'+[friend.user_name]+'.png')"
                                     alt="Profile" 
                                     class="img-awards-profile rounded-circle"
                                     >
-                                            <span>{{friend.name}}</span>
+                                            <span>{{friend.user_name}}</span>
                                         </div>
                                         <div class="col p-0 text-right">
-                                            <span>{{friend.totalScore}}</span>
+                                            <span>{{friend.total_score}}</span>
                                         </div>
                                         <div class="col p-0 text-right">
                                             <span>Lvl. {{friend.level}}</span>
@@ -59,6 +73,8 @@ export default {
   props: ['goals', 'friends'],
   data(){
     return{
+        activeGoalIndex: undefined,
+        activeFriendIndex: undefined,
     }
   },
 
@@ -67,7 +83,12 @@ export default {
   },
   
   methods: {
-
+      setActiveGoal(goal, index) { 
+          this.activeGoalIndex = index;
+        },
+        setActiveFriend(friend, index) { 
+          this.activeFriendIndex = index;
+        }, 
   }
 }
 </script>

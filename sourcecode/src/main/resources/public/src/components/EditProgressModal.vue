@@ -13,9 +13,9 @@
           <div class="modal-header">
             <h5
               class="modal-title"
-              v-bind:class="[textCustom50]"
+              v-bind:class="[goal.text]"
               v-bind:id="[goal.modal]"
-            >{{goal.category}}: {{goal.title}}</h5>
+            >{{goal.category}}: {{goal.name}}</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -30,7 +30,7 @@
                     <div class="input-group-prepend">
                       <button
                         class="btn btn-sm"
-                        v-bind:class=" [backgroundCustom50]"
+                        v-bind:class=" [goal.bg50]"
                         id="minus-btn"
                         v-on:click="inputMinus"
                         :disabled="minusButtonDisabled"
@@ -42,7 +42,8 @@
                     <input
                       type="number"
                       step="0.5"
-                      class="form-control text-center"
+                      readonly
+                      class="form-control text-center bg-transparent"
                       id="counterInput"
                       aria-label="counterLabelAppend"
                       aria-describedby="counter"
@@ -52,7 +53,7 @@
                     <div class="input-group-prepend">
                       <button
                         class="btn btn-sm"
-                        v-bind:class=" [backgroundCustom50]"
+                        v-bind:class=" [goal.bg50]"
                         id="plus-btn"
                         v-on:click="inputPlus"
                         :disabled="plusButtonDisabled"
@@ -76,7 +77,7 @@
             <button
               type="button"
               class="btn text-white toast-health-show"
-              v-bind:class=" [backgroundCustom50]"
+              v-bind:class=" [goal.bg50]"
               v-on:click="submitProgress"
               data-dismiss="modal"
             >Set</button>
@@ -97,9 +98,6 @@ export default {
   props: ["goal"],
   data() {
     return {
-      textCustom50: "txt-custom-" + this.goal.color + "-50",
-      backgroundCustom50: "bg-custom-" + this.goal.color + "-50",
-      backgroundCustom70: "bg-custom-" + this.goal.color + "-70",
       valCounter: this.goal.current,
       minusButtonDisabled: (this.goal.current < 0),
       plusButtonDisabled: (this.goal.current > this.goal.target)
@@ -110,9 +108,6 @@ export default {
   },
 
   methods: {
-    dostartup() {
-      alert("started" + this.goal.color);
-    },
     submitProgress() {
       alert("you submitted " + this.valCounter + " progress to your goal");
       //need to POST /change Progress Value from goal in DB!

@@ -8,26 +8,26 @@
                         <tr class="font-weight-bold">
                             <th scope="row" class="text-center">
                                 <img 
-                                    v-bind:src="[user.profile]" 
+                                    v-bind:src="require('../img/profile_'+[user.user_name]+'.png')"
                                     alt="Profile" 
                                     class="img-friend-table rounded-circle"
                                     >
                             </th>
-                            <td class="text-left align-middle">{{user.name}}</td>
-                            <td class="align-middle">{{user.totalScore}}</td>
+                            <td class="text-left align-middle">{{user.user_name}}</td>
+                            <td class="align-middle">{{user.total_score}}</td>
                             <td class="align-middle">Lvl. {{user.level}}</td>
                         </tr>
 
                         <tr v-for="friend in friends" :key="friend.id">
                             <th scope="row" class="text-center">
                                 <img 
-                                    v-bind:src="[friend.profile]" 
+                                    v-bind:src="require('../img/profile_'+[friend.user_name]+'.png')"
                                     alt="Profile" 
                                     class="img-friend-table rounded-circle"
                                     >
                             </th>
-                            <td class="text-left align-middle">{{friend.name}}</td>
-                            <td class="align-middle">{{friend.totalScore}}</td>
+                            <td class="text-left align-middle">{{friend.user_name}}</td>
+                            <td class="align-middle">{{friend.total_score}}</td>
                             <td class="align-middle">Lvl. {{friend.level}}</td>
                         </tr>
                     </tbody>
@@ -43,12 +43,6 @@ export default {
   props: ['user', 'friends'],
   data(){
     return{
-      textCustom50: "txt-custom-"+this.goal.goalColor+"-50",
-      backgroundCustom50: "bg-custom-"+this.goal.goalColor+"-50",
-      backgroundCustom70: "bg-custom-"+this.goal.goalColor+"-70",
-
-      valNow: this.goal.goalCurrent/this.goal.goalTarget*100,
-      valOpen: 100-this.goal.goalCurrent/this.goal.goalTarget*100,
     }
   },
 

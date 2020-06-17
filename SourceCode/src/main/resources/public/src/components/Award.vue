@@ -3,7 +3,7 @@
         <div>
             <span>{{award.text}}</span>
             <img v-if="award.friend!=null" v-bind:src="[award.friendimg]" class="img-awards-profile rounded-circle">
-            <span v-if="award.friend!=null">{{award.friend}}</span>
+            <span v-if="award.friend!=null"> {{award.friend}}</span>
             <p 
                 class=" m-0"
                 v-bind:class="[textCustom50]"

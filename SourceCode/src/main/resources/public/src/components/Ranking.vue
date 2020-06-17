@@ -13,7 +13,7 @@
               />
             <div class="progress-bar bg-custom-grey-70" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <p class="mt-2">Next level in {{user.nextLevel}} points</p>
+        <p class="mt-2">Next level in {{user.next_level}} points</p>
         <!-- <h5 class="font-weight-bold"><span>Rookie</span></h5> -->
   </div>
 </template>
@@ -23,7 +23,7 @@ export default {
   props: ['user'],
   data(){
     return{
-      valNow: this.user.LevelScore/(this.user.LevelScore+this.user.nextLevel)*100,
+      valNow: this.user.level_score/(this.user.level_score+this.user.next_level)*100,
     }
   },
 

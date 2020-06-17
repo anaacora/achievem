@@ -17,7 +17,7 @@
     <div class="row mb-1">
       <div class="col d-flex justify-content-center muted">
         <i @click="previousChart()" class="fas fa-chevron-left hovering mr-3 mt-1"></i>
-        <span class="no-space hovering">{{goals[currentId].title}}</span>
+        <span class="no-space hovering">{{goals[currentId].name}}</span>
         <i @click="nextChart()" class="fas fa-chevron-right hovering ml-3 mt-1"></i>
       </div>
     </div>
@@ -32,6 +32,7 @@
 
 <script>
 import BarChart from "../assets/barchart.js";
+// import {getColorByCategory} from "../assets/global.js";
 
 export default {
   props: ["goals"],
@@ -62,23 +63,28 @@ export default {
     },
     currentId: 0
   }),
-  mounted() {
+  mounted(){
+    this.updateChart();
+  },
+  beforeUpdate() {
     this.updateChart();
   },
   methods: {
     updateChart() {
       //COLORS USED: always 50 % & 70 %
+      var currentGoal = this.goals[this.currentId];
+
       var bgc = "";
-      if (this.goals[this.currentId].color === "blue") {
+      if (currentGoal.color === "blue") {
         //IF Blue - Health & Food:
         bgc = "rgba(130, 183, 227, 1)";
-      } else if (this.goals[this.currentId].color === "purple") {
+      } else if (currentGoal.color === "purple") {
         //IF Purple - Education:
         bgc = "rgba(206, 151, 181, 1)";
-      } else if (this.goals[this.currentId].color === "orange") {
+      } else if (currentGoal.color === "orange") {
         //IF Orange - Sports:
         bgc = "rgba(227, 169, 130, 1)";
-      } else if (this.goals[this.currentId].color === "green") {
+      } else if (currentGoal.color === "green") {
         //IF Green - Lifestyle:
         bgc = "rgba(145, 212, 172, 1)";
       }
@@ -87,7 +93,7 @@ export default {
         datasets: [
           {
             backgroundColor: bgc,
-            data: this.goals[this.currentId].progressData
+            data: currentGoal.progressData
           }
         ]
       };

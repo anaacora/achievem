@@ -4,13 +4,14 @@
 
         <div class="row mb-3">
             <div class="col d-flex justify-content-center">
-                <h3>Anaa</h3>
+                <h3>{{user.user_name}}</h3>
             </div>
         </div>
 
         <div class="row mb-3">
             <div class="col d-flex justify-content-center muted">
-                <img src="../img/profile_anaa.png" alt="Profile" class="img-profile rounded-circle">
+                <img v-bind:src="require('../img/profile_'+[user.user_name]+'.png')"
+                alt="Profile" class="img-profile rounded-circle">
                 <div>
                     <i class="fas fa-camera hovering ml-1"></i>
                 </div>
@@ -41,13 +42,33 @@
 </style>
 
 <script>
-// @ is an alias to /src
-//import HelloWorld from '@/components/HelloWorld.vue'
+import axios from "axios";
+import { url, id} from "../assets/global.js";
 
 export default {
-  name: 'Profile',
-  components: {
-     // HelloWorld,
-  }
+  data() {
+      return {
+          user:{},
+        }
+    },
+
+    mounted () {
+        this.getUserById(); 
+    },
+
+    methods: {
+        getUserById(){
+        axios.get(url + '/users?id='+id)
+            .then((response)=>{
+            // handle success
+            console.log(response.data);
+            this.user = response.data;
+            })
+            .catch((error)=>{
+            // handle error
+            console.log(error);
+            })
+        }
+    },
 }
 </script>

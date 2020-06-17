@@ -1,13 +1,16 @@
 import axios from 'axios';
+import { url, id } from "./global.js";
 
-export function getUserId(id) {
-  axios.get('http://localhost:8081/api/users/' + id)
-    .then((response)=>{
-      console.log(response.data);
-      return response.data;
-    })
-    .catch((error)=>{
-      console.log(error);
-    })
+export function getUserById() {
+  axios.get(url + '/users?id='+id)
+      .then((response)=>{
+        // handle success
+        // console.log(response.data);
+        this.user = response.data;
+      })
+      .catch((error)=>{
+        // handle error
+        console.log(error);
+      })
 }
 
