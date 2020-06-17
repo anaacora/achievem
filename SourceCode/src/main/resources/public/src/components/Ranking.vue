@@ -33,11 +33,18 @@ export default {
   props: ["user"],
   data() {
     return {
-      valNow:
-        (this.user.level_score /
-          (this.user.level_score + this.user.next_level)) *
-        100
+      valNow: 0,
     };
+  },
+
+  beforeUpdate(){
+    this.initProgressbar();
+  },
+
+  methods: {
+    initProgressbar() {
+      this.valNow = (this.user.level_score / (this.user.level_score + this.user.next_level)) * 100
+    }
   }
 };
 </script>

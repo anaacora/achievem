@@ -73,7 +73,7 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn text-white toast-health-show"
+              class="btn text-white"
               v-bind:class=" [goal.bg50]"
               v-on:click="submitProgress"
               data-dismiss="modal"
@@ -97,11 +97,8 @@ export default {
     };
   },
 
-  mounted() {},
-
   methods: {
     submitProgress() {
-      alert("you submitted " + this.valCounter + " progress to your goal");
       this.goal.current = this.valCounter;
       this.$emit("childToParent", this.goal);
     },

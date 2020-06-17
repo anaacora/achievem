@@ -27,77 +27,6 @@
       </div>
       <statistics v-bind:goals="goals" ref="stat"></statistics>
     </div>
-
-    <!-- Toasts -->
-    <div aria-live="polite" aria-atomic="true">
-      <div
-        id="toast-health"
-        class="toast position-absolute"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-        data-delay="5000"
-      >
-        <div class="toast-header">
-          <strong class="mr-auto">YOU ACHIEVED'EM!</strong>
-          <small class="text-muted">just now</small>
-          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="toast-body">
-          You achieved a goal in
-          <span class="txt-custom-blue-50">Health & Food</span> !!!
-          <span class="fas fa-laugh-beam"></span>
-        </div>
-      </div>
-    </div>
-    <div aria-live="polite" aria-atomic="true">
-      <div
-        id="toast-edu"
-        class="toast position-absolute"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-        data-delay="5000"
-      >
-        <div class="toast-header">
-          <strong class="mr-auto">YOU ACHIEVED'EM!</strong>
-          <small class="text-muted">just now</small>
-          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="toast-body">
-          You achieved a goal in
-          <span class="txt-custom-purple-50">Education</span> !!!
-          <span class="fas fa-laugh-beam"></span>
-        </div>
-      </div>
-    </div>
-    <div aria-live="polite" aria-atomic="true">
-      <div
-        id="toast-sport"
-        class="toast position-absolute"
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-        data-delay="5000"
-      >
-        <div class="toast-header">
-          <strong class="mr-auto">YOU ACHIEVED'EM!</strong>
-          <small class="text-muted">just now</small>
-          <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="toast-body">
-          You achieved a goal in
-          <span class="txt-custom-orange-50">Sports</span> !!!
-          <span class="fas fa-laugh-beam"></span>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -112,25 +41,12 @@
   height: 350px;
   width: 450px;
 }
-
-.toast {
-  background-color: rgba(255, 255, 255, 0.95);
-  z-index: 999;
-  right: 25%;
-  top: 71px;
-  /* position: absolute;
-	width: 100%;
-	height: 100%;
-	display: none; */
-}
 </style>
 
 <script>
-// @ is an alias to /src
 import GoalItem from "@/components/GoalItem.vue";
 import Statistics from "@/components/Statistics.vue";
 
-// import { getUserById } from "../assets/auth.js";
 import { url, id } from "../assets/global.js";
 import axios from "axios";
 
@@ -142,7 +58,7 @@ export default {
   },
   data: function() {
     return {
-      user: {},
+      user: { user_name: "Anaabanana" },
       goals: [{}]
     };
   },

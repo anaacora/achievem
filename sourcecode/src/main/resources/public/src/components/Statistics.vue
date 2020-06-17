@@ -70,10 +70,9 @@ export default {
   },
   methods: {
     updateChart() {
-      //COLORS USED: always 50 % & 70 %
       var currentGoal = this.goals[this.currentId];
-
       var bgc = "";
+      
       if (currentGoal.color === "blue") {
         //IF Blue - Health & Food:
         bgc = "rgba(130, 183, 227, 1)";

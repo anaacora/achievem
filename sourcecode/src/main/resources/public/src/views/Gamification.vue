@@ -87,8 +87,8 @@ export default {
   },
   data() {
     return {
-      user: {},
-      friends: [{}],
+      user: { user_name: "Anaabanana" },
+      friends: [{ user_name: "PeaceDenise" }, { user_name: "ChrisTheBeast" }, { user_name: "SilvanSuperman" }],
       goals: [{}],
       awards: [
         {
@@ -158,7 +158,6 @@ export default {
       axios
         .get(url + "/users?id=" + id)
         .then(response => {
-          console.log(response.data);
           this.user = response.data;
         })
         .catch(error => {
@@ -182,18 +181,22 @@ export default {
         .get(url + "/goals?userId=" + id)
         .then(response => {
           this.goals = response.data;
-
-          for (var i = 0; this.goals.length; i++) {
-            this.goals[i].color = getColorByCategory(this.goals[i].category);
-            this.goals[i].text = "txt-custom-" + this.goals[i].color + "-50";
-            this.goals[i].bg50 = "bg-custom-" + this.goals[i].color + "-50";
-            this.goals[i].bg70 = "bg-custom-" + this.goals[i].color + "-70";
-          }
+                    
+          this.getStyling();
         })
         .catch(error => {
           console.log(error);
         });
-    }
+    },
+
+    getStyling(){
+      for (var i = 0; i<this.goals.length; i++) {
+        this.goals[i].color = getColorByCategory(this.goals[i].category);
+        this.goals[i].text = "txt-custom-" + this.goals[i].color + "-50";
+        this.goals[i].bg50 = "bg-custom-" + this.goals[i].color + "-50";
+        this.goals[i].bg70 = "bg-custom-" + this.goals[i].color + "-70";
+      }
+    },
   }
 };
 </script>

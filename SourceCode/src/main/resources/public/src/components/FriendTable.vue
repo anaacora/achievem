@@ -48,25 +48,12 @@
 <script>
 export default {
   props: ["user", "friends"],
-  data() {
-    return {};
-  }
 };
 </script>
 
 <style scoped>
-.img-score {
-  height: 150px;
-  width: 150px;
-}
-
 .img-friend-table {
   height: 40px;
   width: 40px;
-}
-
-.img-awards-profile {
-  height: 25px;
-  width: 25px;
 }
 </style>

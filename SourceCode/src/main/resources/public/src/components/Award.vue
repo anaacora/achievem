@@ -5,7 +5,7 @@
       <img
         v-if="award.friend!=null"
         v-bind:src="[award.friendimg]"
-        class="img-awards-profile rounded-circle"
+        class="img-awards-profile rounded-circle mr-2 ml-1"
       />
       <span v-if="award.friend!=null">{{award.friend}}</span>
       <p class="m-0" v-bind:class="[textCustom50]">+ {{award.points}}</p>

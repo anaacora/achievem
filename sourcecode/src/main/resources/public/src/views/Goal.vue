@@ -316,12 +316,6 @@ export default {
       }
     },
 
-    setModalName() {
-      let goalName = this.goal.name;
-      goalName = goalName.replace(/ /g, "");
-      this.goal.modal = goalName + "Modal";
-    },
-
     validateForm() {
       //set valid
       this.isValid = true;
@@ -369,6 +363,12 @@ export default {
       }
     },
 
+    setModalName() {
+      let goalName = this.goal.name;
+      goalName = goalName.replace(/ /g, "");
+      this.goal.modal = goalName + "Modal";
+    },
+    
     postGoal() {
       axios
         .post(url + "/goals", JSON.stringify(this.goal))

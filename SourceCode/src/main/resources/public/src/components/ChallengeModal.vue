@@ -23,10 +23,10 @@
 
                 <li
                   class="list-group-item list-group-item-action"
-                  v-for="(goal, index) in goals"
-                  v-bind:class="{ 'list-group-item-secondary': activeGoalIndex === index }"
+                  v-for="(goal, gindex) in goals"
+                  v-bind:class="{ 'list-group-item-secondary': activeGoalIndex === gindex }"
                   v-bind:key="goal.id"
-                  @click="setActiveGoal(goal, index)"
+                  @click="setActiveGoal(goal, gindex)"
                 >
                   <div class="d-flex justify-content-between align-items-center">
                     <span>{{goal.name}}</span>
@@ -38,19 +38,21 @@
 
                 <li
                   class="list-group-item list-group-item-action"
-                  v-for="(friend, index) in friends"
-                  v-bind:class="{ 'list-group-item-secondary': activeFriendIndex === index }"
+                  v-for="(friend, findex) in friends"
+                  v-bind:class="{ 'list-group-item-secondary': activeFriendIndex === findex }"
                   v-bind:key="friend.id"
-                  @click="setActiveFriend(friend, index)"
+                  @click="setActiveFriend(friend, findex)"
                 >
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="col p-0 text-left">
                       <img
                         v-bind:src="require('../img/profile_'+[friend.user_name]+'.png')"
                         alt="Profile"
-                        class="img-awards-profile rounded-circle"
+                        class="img-challenge-profile rounded-circle"
                       />
-                      <span>{{friend.user_name}}</span>
+                    </div>
+                    <div class="col p-0">
+                      <span> {{friend.user_name}}</span>
                     </div>
                     <div class="col p-0 text-right">
                       <span>{{friend.total_score}}</span>
@@ -77,8 +79,8 @@ export default {
   props: ["goals", "friends"],
   data() {
     return {
-      activeGoalIndex: undefined,
-      activeFriendIndex: undefined
+      activeGoalIndex: 0,
+      activeFriendIndex: 0,
     };
   },
   methods: {
@@ -93,13 +95,8 @@ export default {
 </script>
 
 <style scoped>
-.img-awards-profile {
+.img-challenge-profile {
   height: 25px;
   width: 25px;
-}
-
-.img-awards {
-  height: 75px;
-  width: 75px;
 }
 </style>

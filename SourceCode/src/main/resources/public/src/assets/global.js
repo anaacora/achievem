@@ -1,4 +1,4 @@
-export const url = 'https://706ea100-c721-458d-b895-53c5e4444218.mock.pstmn.io';
+export const url = 'https://b15fdaff-6356-46b9-9f25-c61059ac1aab.mock.pstmn.io';
 export const id = 1;
 
 export function getColorByCategory(category) {

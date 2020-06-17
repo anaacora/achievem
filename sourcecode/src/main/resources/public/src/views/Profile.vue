@@ -64,7 +64,7 @@ import { url, id } from "../assets/global.js";
 export default {
   data() {
     return {
-      user: {}
+      user: { user_name: "Anaabanana" }
     };
   },
   mounted() {
@@ -75,7 +75,6 @@ export default {
       axios
         .get(url + "/users?id=" + id)
         .then(response => {
-          console.log(response.data);
           this.user = response.data;
         })
         .catch(error => {

@@ -46,7 +46,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import EditProgress from "@/components/EditProgressModal.vue";
 import { getColorByCategory } from "../assets/global.js";
 
