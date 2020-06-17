@@ -267,7 +267,6 @@ export default {
         target: "",
         progress: "0",
         unit: "",
-        // color: "",
         startDate: "",
         endDate: "",
         repetition: "",
@@ -285,9 +284,6 @@ export default {
       },
       isValid: false
     };
-  },
-  mounted() {
-    //console.log(this.goal);
   },
   methods: {
     addGoal() {
@@ -315,7 +311,6 @@ export default {
           endDate[2] + "-" + endDate[1] + "-" + endDate[1];
         this.goal.endDate = formatedEndDate;
 
-        //set modal
         this.setModalName();
         this.postGoal();
       }
@@ -378,31 +373,13 @@ export default {
       axios
         .post(url + "/goals", JSON.stringify(this.goal))
         .then(response => {
-          // handle success
           alert(response.data);
           this.$router.replace("/");
         })
         .catch(error => {
-          // handle error
           console.log(error);
         });
     }
   }
 };
-/*
-{
-	"name": "test",
-    "category": "test",
-    "target": "1",
-    "progress": "00",
-    "unit": "l",
-    "startDate": "2020-05-10",
-    "endDate": "2020-12-01",
-    "user": {
-        "id": 1,
-    },
-    "award": {
-        "id": 1
-    }
-}*/
 </script>

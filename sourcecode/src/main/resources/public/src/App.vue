@@ -44,8 +44,6 @@
 </template>
 
 <style>
-/*--------------------GENERAL--------------------*/
-
 .hovering:hover {
   color: #3d3d3d !important;
 }
@@ -53,8 +51,6 @@
 .muted {
   color: #808080;
 }
-
-/*--------------------NAVIGATION--------------------*/
 
 nav {
   background-color: #e6e6e6;
@@ -69,8 +65,6 @@ nav {
   height: 37px;
   width: 37px;
 }
-
-/*--------------------COLORS--------------------*/
 
 /*Background colors*/
 
@@ -199,31 +193,31 @@ nav {
 
 <script>
 import axios from "axios";
-import { url, id} from "./assets/global.js";
+import { url, id } from "./assets/global.js";
 
 export default {
   data() {
     return {
-        user:{ user_name: 'Anaabanana'},
-    }
+      user: { user_name: "Anaabanana" }
+    };
   },
-  mounted () {
-    this.getUserById(); 
+  mounted() {
+    this.getUserById();
   },
-
   methods: {
-    getUserById(){
-      axios.get(url + '/users?id='+id)
-        .then((response)=>{
+    getUserById() {
+      axios
+        .get(url + "/users?id=" + id)
+        .then(response => {
           // handle success
           console.log(response.data);
           this.user = response.data;
         })
-        .catch((error)=>{
+        .catch(error => {
           // handle error
           console.log(error);
-        })
-    },
+        });
+    }
   }
-}
+};
 </script>

@@ -63,10 +63,7 @@
                     </div>
 
                     <div class="input-group-append">
-                      <span
-                        class="input-group-text pl-4"
-                        id="counterLabelAppend"
-                      >{{goal.unit}}</span>
+                      <span class="input-group-text pl-4" id="counterLabelAppend">{{goal.unit}}</span>
                     </div>
                   </div>
                 </div>
@@ -81,11 +78,7 @@
               v-on:click="submitProgress"
               data-dismiss="modal"
             >Set</button>
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -99,19 +92,16 @@ export default {
   data() {
     return {
       valCounter: this.goal.current,
-      minusButtonDisabled: (this.goal.current < 0),
-      plusButtonDisabled: (this.goal.current > this.goal.target)
+      minusButtonDisabled: this.goal.current < 0,
+      plusButtonDisabled: this.goal.current > this.goal.target
     };
   },
 
-  mounted() {
-  },
+  mounted() {},
 
   methods: {
     submitProgress() {
       alert("you submitted " + this.valCounter + " progress to your goal");
-      //need to POST /change Progress Value from goal in DB!
-      //show toast
       this.goal.current = this.valCounter;
       this.$emit("childToParent", this.goal);
     },

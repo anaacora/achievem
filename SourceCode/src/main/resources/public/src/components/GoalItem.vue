@@ -48,7 +48,7 @@
 <script>
 // @ is an alias to /src
 import EditProgress from "@/components/EditProgressModal.vue";
-import {getColorByCategory} from "../assets/global.js";
+import { getColorByCategory } from "../assets/global.js";
 
 export default {
   components: {
@@ -58,11 +58,11 @@ export default {
   data() {
     return {
       valNow: 0,
-      valOpen: 0,
+      valOpen: 0
     };
   },
-  beforeMount() {   
-    this.initProgressbar(); 
+  beforeMount() {
+    this.initProgressbar();
   },
   methods: {
     onChildClick() {
@@ -70,13 +70,13 @@ export default {
     },
     updateProgressbar() {
       this.initProgressbar();
-      this.goal.progressData[(this.goal.progressData.length-1)] = this.valNow;
-      this.$emit('childToParent', this.goal);
+      this.goal.progressData[this.goal.progressData.length - 1] = this.valNow;
+      this.$emit("childToParent", this.goal);
     },
-    initProgressbar(){
+    initProgressbar() {
       this.valNow = (this.goal.current / this.goal.target) * 100;
-      this.valOpen = 100 - (this.goal.current / this.goal.target) * 100;   
-      
+      this.valOpen = 100 - (this.goal.current / this.goal.target) * 100;
+
       // set styling
       this.goal.color = getColorByCategory(this.goal.category);
       this.goal.text = "txt-custom-" + this.goal.color + "-50";

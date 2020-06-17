@@ -131,7 +131,7 @@ import GoalItem from "@/components/GoalItem.vue";
 import Statistics from "@/components/Statistics.vue";
 
 // import { getUserById } from "../assets/auth.js";
-import { url, id} from "../assets/global.js";
+import { url, id } from "../assets/global.js";
 import axios from "axios";
 
 export default {
@@ -143,94 +143,36 @@ export default {
   data: function() {
     return {
       user: {},
-      goals:[{}],
-
-      // goals: [
-      //   {
-      //     id: 1,
-      //     modal: "WaterModal",
-      //     category: "Health & Food",
-      //     name: "Drink 2l water",
-      //     unit: "l water",
-      //     color: "blue",
-      //     current: 0.5,
-      //     target: 2,
-      //     inputSteps: 0.5,
-      //     progressData: [20, 50, 50, 80, 70, 100, 33]
-      //   },
-      //   {
-      //     id: 2,
-      //     modal: "FruitModal",
-      //     category: "Health & Food",
-      //     name: "Eat 3 fruits",
-      //     unit: "Fruits",
-      //     color: "blue",
-      //     current: 0,
-      //     target: 3,
-      //     inputSteps: 1,
-      //     progressData: [75, 50, 20, 10, 50, 80, 0]
-      //   },
-      //   {
-      //     id: 3,
-      //     modal: "PagesModal",
-      //     category: "Education",
-      //     name: "Read 20 book pages",
-      //     unit: "Pages",
-      //     color: "purple",
-      //     current: 15,
-      //     target: 20,
-      //     inputSteps: 1,
-      //     progressData: [20, 80, 50, 100, 70, 100, 60]
-      //   },
-        // {
-        //   id: 4,
-        //   modal: "SportModal",
-        //   category: "Sports",
-        //   name: "Go to the gym",
-        //   unit: "time",
-        //   color: "orange",
-        //   current: 1,
-        //   target: 1,
-        //   inputSteps: 1,
-        //   progressData: [0, 100, 100, 0, 100, 100, 100]
-        // }
-      // ],
-
+      goals: [{}]
     };
   },
 
-  mounted () {
+  mounted() {
     this.getUserById();
-    // getUserById();
-
-    this.getGoalsByUserId();    
+    this.getGoalsByUserId();
   },
 
   methods: {
-    getUserById(){
-      axios.get(url + '/users?id='+id)
-        .then((response)=>{
-          // handle success
-          // console.log(response.data);
+    getUserById() {
+      axios
+        .get(url + "/users?id=" + id)
+        .then(response => {
           this.user = response.data;
         })
-        .catch((error)=>{
-          // handle error
+        .catch(error => {
           console.log(error);
-        })
+        });
     },
 
-    getGoalsByUserId(){
-      axios.get(url + '/goals?userId='+id)
-        .then((response)=>{
-          // handle success
-          // console.log(response.data);
+    getGoalsByUserId() {
+      axios
+        .get(url + "/goals?userId=" + id)
+        .then(response => {
           this.goals = response.data;
         })
-        .catch((error)=>{
-          // handle error
+        .catch(error => {
           console.log(error);
-        })
+        });
     },
 
     onChildClick(updatedGoal) {
@@ -240,7 +182,7 @@ export default {
         }
       });
       this.$refs.stat.updateChart();
-    },
+    }
   }
 };
 </script>

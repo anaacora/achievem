@@ -32,7 +32,6 @@
 
 <script>
 import BarChart from "../assets/barchart.js";
-// import {getColorByCategory} from "../assets/global.js";
 
 export default {
   props: ["goals"],
@@ -63,7 +62,7 @@ export default {
     },
     currentId: 0
   }),
-  mounted(){
+  mounted() {
     this.updateChart();
   },
   beforeUpdate() {
