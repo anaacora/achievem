@@ -380,10 +380,12 @@ export default {
     },
 
     postGoal(){
-      axios.post(url + '/goals',this.goal)
+      axios.post(url + '/goals',JSON.stringify(this.goal))
         .then((response)=>{
           // handle success
           console.log(response);
+          alert("You added a new goal!");
+          console.log(JSON.stringify(this.goal));
         })
         .catch((error)=>{
           // handle error
