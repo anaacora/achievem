@@ -253,7 +253,7 @@
   </div>
 </template>
 <script>
-import { url} from "../assets/global.js";
+import { url } from "../assets/global.js";
 import axios from "axios";
 
 export default {
@@ -317,19 +317,14 @@ export default {
 
         //set modal
         this.setModalName();
-        // var user = getUserById(1);
-        // this.goal.user = user;
-        var goalJson = JSON.stringify(this.goal);
-        alert(goalJson);
-
         this.postGoal();
       }
     },
-    
-    setModalName(){
+
+    setModalName() {
       let goalName = this.goal.name;
-      goalName = goalName.replace(/ /g, '');
-      this.goal.modal= goalName+ "Modal";
+      goalName = goalName.replace(/ /g, "");
+      this.goal.modal = goalName + "Modal";
     },
 
     validateForm() {
@@ -379,19 +374,19 @@ export default {
       }
     },
 
-    postGoal(){
-      axios.post(url + '/goals',JSON.stringify(this.goal))
-        .then((response)=>{
+    postGoal() {
+      axios
+        .post(url + "/goals", JSON.stringify(this.goal))
+        .then(response => {
           // handle success
-          console.log(response);
-          alert("You added a new goal!");
-          console.log(JSON.stringify(this.goal));
+          alert(response.data);
+          this.$router.replace("/");
         })
-        .catch((error)=>{
+        .catch(error => {
           // handle error
           console.log(error);
-        })
-    },
+        });
+    }
   }
 };
 /*

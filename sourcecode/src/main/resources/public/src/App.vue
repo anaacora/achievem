@@ -204,7 +204,7 @@ import { url, id} from "./assets/global.js";
 export default {
   data() {
     return {
-        user:{},
+        user:{ user_name: 'Anaabanana'},
     }
   },
   mounted () {
